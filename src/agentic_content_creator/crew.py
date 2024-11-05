@@ -1,11 +1,14 @@
 from crewai import Agent, Crew, Process, Task
 from crewai.project import CrewBase, agent, crew, task
+from crewai_tools import SerperDevTool
 
 # Uncomment the following line to use an example of a custom tool
 # from agentic_content_creator.tools.custom_tool import MyCustomTool
 
 # Check our tools documentations for more information on how to use them
 # from crewai_tools import SerperDevTool
+
+search_tool = SerperDevTool()
 
 @CrewBase
 class AgenticContentCreatorCrew():
@@ -15,7 +18,7 @@ class AgenticContentCreatorCrew():
 	def researcher(self) -> Agent:
 		return Agent(
 			config=self.agents_config['researcher'],
-			# tools=[MyCustomTool()], # Example of custom tool, loaded on the beginning of file
+			tools=[search_tool], # Example of custom tool, loaded on the beginning of file
 			verbose=True
 		)
 
@@ -23,6 +26,7 @@ class AgenticContentCreatorCrew():
 	def analyst(self) -> Agent:
 		return Agent(
 			config=self.agents_config['analyst'],
+			tools=[search_tool],
 			verbose=True
 		)
 
