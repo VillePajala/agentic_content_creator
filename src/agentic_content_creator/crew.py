@@ -20,9 +20,9 @@ class AgenticContentCreatorCrew():
 		)
 
 	@agent
-	def reporting_analyst(self) -> Agent:
+	def analyst(self) -> Agent:
 		return Agent(
-			config=self.agents_config['reporting_analyst'],
+			config=self.agents_config['analyst'],
 			verbose=True
 		)
 
@@ -30,13 +30,15 @@ class AgenticContentCreatorCrew():
 	def research_task(self) -> Task:
 		return Task(
 			config=self.tasks_config['research_task'],
+			output_file='research.md'
 		)
 
 	@task
-	def reporting_task(self) -> Task:
+	def analyzing_task(self) -> Task:
 		return Task(
-			config=self.tasks_config['reporting_task'],
-			output_file='report.md'
+			config=self.tasks_config['analyzing_task'],
+			input_file='research.md',
+			output_file='marketanalysis.md'
 		)
 
 	@crew

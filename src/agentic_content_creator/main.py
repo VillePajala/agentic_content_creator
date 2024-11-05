@@ -12,7 +12,7 @@ def run():
     Run the crew.
     """
     inputs = {
-        'topic': 'AI LLMs'
+        'topic': 'AI agents'
     }
     AgenticContentCreatorCrew().crew().kickoff(inputs=inputs)
 
