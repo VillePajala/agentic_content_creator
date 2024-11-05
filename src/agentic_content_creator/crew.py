@@ -1,6 +1,7 @@
 from crewai import Agent, Crew, Process, Task
 from crewai.project import CrewBase, agent, crew, task
 from crewai_tools import SerperDevTool
+from agentic_content_creator.types import Report
 
 # Uncomment the following line to use an example of a custom tool
 # from agentic_content_creator.tools.custom_tool import MyCustomTool
@@ -34,6 +35,7 @@ class AgenticContentCreatorCrew():
 	def research_task(self) -> Task:
 		return Task(
 			config=self.tasks_config['research_task'],
+			#output_pydantic=Report,
 			output_file='research.md'
 		)
 
@@ -42,6 +44,8 @@ class AgenticContentCreatorCrew():
 		return Task(
 			config=self.tasks_config['analyzing_task'],
 			input_file='research.md',
+			context=[self.research_task()],
+			#output_pydantic=Report,
 			output_file='marketanalysis.md'
 		)
 

@@ -4,12 +4,14 @@ research_task:
     Make sure you find any interesting and relevant information given
     the current year is 2024.
   expected_output: >
-    A 2-3 paragraph report summarizing recent advancements, innovations, and key technical details about {topic}. Use bullet points for clarity.
+    A 3-5 paragraph report summarizing recent advancements, innovations, and key technical details about {topic}.
+    The output should contain the report title, the report abstract, the actual report content and finally a bulleted list of key insights from the report.
   agent: researcher
 
 analyzing_task:
   description: >
-    Research and summarize the impact of this AI topic on various industries, including projected market growth, potential applications, and adoption rates.
+    Research and summarize the impact of this topic on various industries, including projected market growth, potential applications, and adoption rates.
   expected_output: >
-     A 2-3 paragraph overview highlighting economic impact, industry-specific examples, and market forecasts. Include projected growth and potential sectors for adoption.
+     An overview report highlighting economic impact, industry-specific examples, and market forecasts. Include projected growth and potential sectors for adoption.
+     The output should contain the report title, the report abstract, the actual report content and finally a bulleted list of key insights from the report.
   agent: analyst
