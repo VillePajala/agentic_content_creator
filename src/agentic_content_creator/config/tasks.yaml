@@ -1,17 +1,34 @@
 research_task:
   description: >
-    Conduct a thorough research about {topic}
-    Make sure you find any interesting and relevant information given
-    the current year is 2024.
+    Conduct comprehensive research on {topic} to uncover current trends, audience interests, and unique insights. Focus on 2024-25 developments, 
+    capturing credible data and examples that add depth and relevance. Provide findings that highlight what resonates most with the target 
+    audience and offer a clear understanding of the competitive landscape.
   expected_output: >
-    A 3-5 paragraph report summarizing recent advancements, innovations, and key technical details about {topic}.
-    The output should contain the report title, the report abstract, the actual report content and finally a bulleted list of key insights from the report.
+    A well-organized research report including: - Overview: A concise title and abstract summarizing main discoveries. 
+    - Trends and Audience Insights: Overview of 2024 trends and audience interests, highlighting common questions and needs. 
+    - Data and Real-World Examples: Key data points, statistics, and real-world examples that enhance understanding of {topic}. 
+    - Competitive Landscape: Summary of competitor content and any identified content gaps. - Practical Takeaways: A list of key insights 
+    and actionable points for use in content creation.
   agent: researcher
 
-analyzing_task:
+design_task:
   description: >
-    Research and summarize the impact of this topic on various industries, including projected market growth, potential applications, and adoption rates.
+    Create a clear, engaging outline for a blog post on {topic} that addresses audience needs and interests. Build a structure that 
+    flows naturally, with actionable insights to enhance engagement. Ensure the outline includes a strong introduction, 
+    organized key points, and a memorable conclusion.
   expected_output: >
-     An overview report highlighting economic impact, industry-specific examples, and market forecasts. Include projected growth and potential sectors for adoption.
-     The output should contain the report title, the report abstract, the actual report content and finally a bulleted list of key insights from the report.
-  agent: analyst
+    A detailed blog post outline including: - Title and Hook: A catchy title and introduction that capture reader interest and introduce 
+    the relevance of {topic}. - Sectioned Key Points: Breakdown of main sections, with each point aligned with audience interests and 
+    research insights. - Engagement Enhancements: Suggestions for examples and other elements that clarify or enrich the content. 
+    - Actionable Takeaways: Specific, practical insights readers can apply related to {topic}. - Conclusion and Call-to-Action: A closing 
+    summary and call-to-action that encourages further engagement. - Summary Bullet Points: A quick-reference list of the main points covered.
+  agent: blog_designer
+
+writing_task:
+  description: >
+    Write a complete blog post on {topic} using the outline and research insights provided by the research and design teams. Ensure the content is accessible, 
+    engaging, and follows the structure outlined, with a strong introduction, clear sections, actionable takeaways, and a memorable conclusion.
+  expected_output: >
+    A fully written blog post that includes: - Title and Introduction: Attention-grabbing title and opening paragraph that introduces the topic 
+    and its relevance. - Main Content Sections: Complete sections based on the outline, each with cohesive, engaging paragraphs covering key points. - Actionable Takeaways: Clear, practical insights for the reader, woven naturally into the content. - Conclusion and Call-to-Action: A closing paragraph that summarizes the main points and encourages further engagement. - Final Edits and Proofreading: Ensure the post is polished, clear, and free of errors before submission.
+  agent: blog_writer

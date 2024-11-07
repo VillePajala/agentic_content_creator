@@ -2,6 +2,7 @@ from crewai import Agent, Crew, Process, Task
 from crewai.project import CrewBase, agent, crew, task
 from crewai_tools import SerperDevTool
 from agentic_content_creator.types import Report
+import os
 
 # Uncomment the following line to use an example of a custom tool
 # from agentic_content_creator.tools.custom_tool import MyCustomTool
@@ -10,6 +11,7 @@ from agentic_content_creator.types import Report
 # from crewai_tools import SerperDevTool
 
 search_tool = SerperDevTool()
+os.environ["OPENAI_MODEL_NAME"] = "gpt-4o"
 
 @CrewBase
 class AgenticContentCreatorCrew():
@@ -24,9 +26,17 @@ class AgenticContentCreatorCrew():
 		)
 
 	@agent
-	def analyst(self) -> Agent:
+	def blog_designer(self) -> Agent:
 		return Agent(
-			config=self.agents_config['analyst'],
+			config=self.agents_config['blog_designer'],
+			tools=[search_tool],
+			verbose=True
+		)
+	
+	@agent
+	def blog_writer(self) -> Agent:
+		return Agent(
+			config=self.agents_config['blog_writer'],
 			tools=[search_tool],
 			verbose=True
 		)
@@ -40,13 +50,22 @@ class AgenticContentCreatorCrew():
 		)
 
 	@task
-	def analyzing_task(self) -> Task:
+	def design_task(self) -> Task:
 		return Task(
-			config=self.tasks_config['analyzing_task'],
+			config=self.tasks_config['design_task'],
 			input_file='research.md',
 			context=[self.research_task()],
 			#output_pydantic=Report,
-			output_file='marketanalysis.md'
+			output_file='blog_outline.md'
+		)
+	
+	@task
+	def writing_task(self) -> Task:
+		return Task(
+			config=self.tasks_config['writing_task'],
+			context=[self.research_task(), self.design_task()],
+			#output_pydantic=Report,
+			output_file='blog.md'
 		)
 
 	@crew
