@@ -81,7 +81,19 @@ class AgenticContentCreatorCrew():
 			config=self.tasks_config['social_media_task'],
 			context=[
 				self.writing_task(),
-				self.research_task()
+				self.research_task(),
+				{
+					"post_types": [
+						"personal_story",
+						"actionable_insight",
+						"thought_leadership"
+					],
+					"engagement_elements": {
+						"story_hooks": True,
+						"discussion_questions": True,
+						"call_to_action": True
+					}
+				}
 			],
 			output_file='social_media_content.md'
 		)
