@@ -4,12 +4,6 @@ from crewai_tools import SerperDevTool
 from agentic_content_creator.types import Report
 import os
 
-# Uncomment the following line to use an example of a custom tool
-# from agentic_content_creator.tools.custom_tool import MyCustomTool
-
-# Check our tools documentations for more information on how to use them
-# from crewai_tools import SerperDevTool
-
 search_tool = SerperDevTool()
 os.environ["OPENAI_MODEL_NAME"] = "gpt-4o"
 
@@ -21,7 +15,7 @@ class AgenticContentCreatorCrew():
 	def researcher(self) -> Agent:
 		return Agent(
 			config=self.agents_config['researcher'],
-			tools=[search_tool], # Example of custom tool, loaded on the beginning of file
+			tools=[search_tool],
 			verbose=True
 		)
 
@@ -41,11 +35,26 @@ class AgenticContentCreatorCrew():
 			verbose=True
 		)
 
+	@agent
+	def social_media_strategist(self) -> Agent:
+		return Agent(
+			config=self.agents_config['social_media_strategist'],
+			tools=[search_tool],
+			verbose=True
+		)
+
+	@agent
+	def content_reviewer(self) -> Agent:
+		return Agent(
+			config=self.agents_config['content_reviewer'],
+			tools=[search_tool],
+			verbose=True
+		)
+
 	@task
 	def research_task(self) -> Task:
 		return Task(
 			config=self.tasks_config['research_task'],
-			#output_pydantic=Report,
 			output_file='research.md'
 		)
 
@@ -55,7 +64,6 @@ class AgenticContentCreatorCrew():
 			config=self.tasks_config['design_task'],
 			input_file='research.md',
 			context=[self.research_task()],
-			#output_pydantic=Report,
 			output_file='blog_outline.md'
 		)
 	
@@ -64,17 +72,38 @@ class AgenticContentCreatorCrew():
 		return Task(
 			config=self.tasks_config['writing_task'],
 			context=[self.research_task(), self.design_task()],
-			#output_pydantic=Report,
 			output_file='blog.md'
+		)
+
+	@task
+	def social_media_task(self) -> Task:
+		return Task(
+			config=self.tasks_config['social_media_task'],
+			context=[
+				self.writing_task(),
+				self.research_task()
+			],
+			output_file='social_media_content.md'
+		)
+
+	@task
+	def review_task(self) -> Task:
+		return Task(
+			config=self.tasks_config['review_task'],
+			context=[
+				self.social_media_task(),
+				self.writing_task(),
+				self.research_task()
+			],
+			output_file='final_social_media_content.md'
 		)
 
 	@crew
 	def crew(self) -> Crew:
 		"""Creates the AgenticContentCreator crew"""
 		return Crew(
-			agents=self.agents, # Automatically created by the @agent decorator
-			tasks=self.tasks, # Automatically created by the @task decorator
-			process=Process.sequential,
-			verbose=True,
-			# process=Process.hierarchical, # In case you wanna use that instead https://docs.crewai.com/how-to/Hierarchical/
+				agents=self.agents,
+				tasks=self.tasks,
+				process=Process.sequential,
+				verbose=True,
 		)

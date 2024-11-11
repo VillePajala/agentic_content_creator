@@ -1,34 +1,229 @@
 research_task:
   description: >
-    Conduct comprehensive research on {topic} to uncover current trends, audience interests, and unique insights. Focus on 2024-25 developments, 
-    capturing credible data and examples that add depth and relevance. Provide findings that highlight what resonates most with the target 
-    audience and offer a clear understanding of the competitive landscape.
+    Conduct an exhaustive, multi-faceted research analysis on {topic}. Your investigation should include:
+    1. Market Analysis:
+       - Current industry trends and future projections for 2024-25
+       - Market size, growth rates, and key drivers
+       - Regulatory environment and compliance considerations
+    2. Audience Research:
+       - Detailed demographic and psychographic profiles
+       - Pain points, challenges, and motivations
+       - Common questions and search intent analysis
+    3. Competitive Analysis:
+       - Top-performing content in the space
+       - Content gaps and underserved angles
+       - Successful content formats and structures
+    4. Expert Insights:
+       - Industry thought leader perspectives
+       - Recent studies and academic research
+       - Expert predictions and controversies
+    5. Data Collection:
+       - Key statistics and benchmarks
+       - Case studies and success stories
+       - Real-world applications and examples
   expected_output: >
-    A well-organized research report including: - Overview: A concise title and abstract summarizing main discoveries. 
-    - Trends and Audience Insights: Overview of 2024 trends and audience interests, highlighting common questions and needs. 
-    - Data and Real-World Examples: Key data points, statistics, and real-world examples that enhance understanding of {topic}. 
-    - Competitive Landscape: Summary of competitor content and any identified content gaps. - Practical Takeaways: A list of key insights 
-    and actionable points for use in content creation.
+    Deliver a comprehensive research report structured as follows:
+    1. Executive Summary:
+       - Key findings and strategic recommendations
+       - Critical insights and opportunities
+    2. Market Overview:
+       - Industry analysis and trend report
+       - Growth projections and market dynamics
+    3. Audience Insights:
+       - Detailed persona profiles
+       - Journey mapping and pain points
+       - Content consumption patterns
+    4. Competitive Landscape:
+       - Content gap analysis
+       - Differentiation opportunities
+       - Best practices and success patterns
+    5. Supporting Data:
+       - Curated statistics and facts
+       - Expert quotes and citations
+       - Case study summaries
+    6. Strategic Recommendations:
+       - Content opportunities
+       - Unique angles and approaches
+       - Risk factors and considerations
+    Include all sources and references for fact-checking.
   agent: researcher
 
 design_task:
   description: >
-    Create a clear, engaging outline for a blog post on {topic} that addresses audience needs and interests. Build a structure that 
-    flows naturally, with actionable insights to enhance engagement. Ensure the outline includes a strong introduction, 
-    organized key points, and a memorable conclusion.
+    Create a detailed, strategic blog post blueprint for {topic} that transforms research insights into 
+    a compelling content structure. Your outline should:
+    1. Analyze the research report to identify:
+       - Most impactful insights and data points
+       - Strongest narrative angles
+       - Key differentiators from existing content
+    2. Develop multiple approaches for:
+       - Headlines that combine SEO and reader appeal
+       - Hook strategies that capture attention
+       - Narrative structures that maintain engagement
+    3. Consider various content elements:
+       - Data visualization opportunities
+       - Expert quote placements
+       - Case study integrations
   expected_output: >
-    A detailed blog post outline including: - Title and Hook: A catchy title and introduction that capture reader interest and introduce 
-    the relevance of {topic}. - Sectioned Key Points: Breakdown of main sections, with each point aligned with audience interests and 
-    research insights. - Engagement Enhancements: Suggestions for examples and other elements that clarify or enrich the content. 
-    - Actionable Takeaways: Specific, practical insights readers can apply related to {topic}. - Conclusion and Call-to-Action: A closing 
-    summary and call-to-action that encourages further engagement. - Summary Bullet Points: A quick-reference list of the main points covered.
+    Deliver a comprehensive blog outline including:
+    1. Content Strategy:
+       - Primary and secondary keywords
+       - Target audience specification
+       - Content goals and KPIs
+    2. Title Options:
+       - 5-7 SEO-optimized headline variations
+       - Subheading suggestions
+    3. Detailed Section-by-Section Blueprint:
+       - Section purpose and key messages
+       - Word count recommendations
+       - Tone and perspective guidelines
+       - Required data points and examples
+       - Transition strategies
+    4. Writing Instructions:
+       - Voice and style guidelines
+       - Technical depth recommendations
+       - Storytelling elements to incorporate
+       - Formatting preferences
+    5. Visual Content Plan:
+       - Image suggestions
+       - Data visualization recommendations
+       - Infographic concepts
+    6. Engagement Strategy:
+       - Reader interaction points
+       - Call-to-action recommendations
+       - Social sharing opportunities
+    Include specific instructions for each section's development.
   agent: blog_designer
 
 writing_task:
   description: >
-    Write a complete blog post on {topic} using the outline and research insights provided by the research and design teams. Ensure the content is accessible, 
-    engaging, and follows the structure outlined, with a strong introduction, clear sections, actionable takeaways, and a memorable conclusion.
+    Transform the detailed outline and research into a polished, engaging blog post that delivers value 
+    while maintaining reader engagement. Follow the blueprint precisely while:
+    1. Maintaining consistent voice and tone
+    2. Integrating research seamlessly
+    3. Creating smooth transitions
+    4. Balancing technical depth with accessibility
+    5. Incorporating storytelling elements
+    6. Optimizing for SEO without compromising readability
   expected_output: >
-    A fully written blog post that includes: - Title and Introduction: Attention-grabbing title and opening paragraph that introduces the topic 
-    and its relevance. - Main Content Sections: Complete sections based on the outline, each with cohesive, engaging paragraphs covering key points. - Actionable Takeaways: Clear, practical insights for the reader, woven naturally into the content. - Conclusion and Call-to-Action: A closing paragraph that summarizes the main points and encourages further engagement. - Final Edits and Proofreading: Ensure the post is polished, clear, and free of errors before submission.
+    Deliver a publication-ready blog post that includes:
+    1. SEO-optimized title and meta description
+    2. Engaging introduction with clear value proposition
+    3. Well-structured main content following the outline
+    4. Strategic use of:
+       - Headers and subheaders
+       - Bullet points and lists
+       - Block quotes and callouts
+       - Transitional phrases
+    5. Conclusion with clear takeaways
+    6. Compelling call-to-action
+    7. Citations and references where appropriate
+    The final piece should be thoroughly proofread and formatted according to style guidelines.
   agent: blog_writer
+
+social_media_task:
+  description: >
+    Using the provided blog post and research insights, create complete, publication-ready social media content:
+
+    1. LINKEDIN CONTENT SET:
+    Create three complete, distinct LinkedIn posts that are immediately ready to publish. Each post should:
+    - Be 1300-2000 characters long
+    - Include an attention-grabbing opening line
+    - Contain detailed professional insights
+    - Use proper formatting (line breaks, bullet points where relevant)
+    - End with a clear call-to-action
+    - Include 5-7 relevant hashtags
+    - Have different angles/approaches for each variation:
+      * Variation 1: Thought leadership perspective
+      * Variation 2: Data-driven insights
+      * Variation 3: Industry trends/challenges
+
+    2. TWITTER/X CONTENT:
+    - Create one complete thread (5-7 tweets)
+    - Include viral-worthy hooks
+    - Break down complex insights into digestible tweets
+    - End with clear call-to-action
+    - Include strategic hashtags
+
+    Format your output exactly like this:
+
+    **LinkedIn Content Set:**
+
+    1. **Main Thought Leadership Post (3 Variations):**
+
+       a. *Variation 1:* 
+       [Complete, formatted LinkedIn post with line breaks]
+       #hashtag1 #hashtag2 #hashtag3 #hashtag4 #hashtag5
+
+       b. *Variation 2:*
+       [Complete, formatted LinkedIn post with line breaks]
+       #hashtag1 #hashtag2 #hashtag3 #hashtag4 #hashtag5
+
+       c. *Variation 3:*
+       [Complete, formatted LinkedIn post with line breaks]
+       #hashtag1 #hashtag2 #hashtag3 #hashtag4 #hashtag5
+
+    **Twitter/X Content Set:**
+
+    1. **Thread Outline (5-7 Tweets):**
+       - Tweet 1: [Hook tweet]
+       - Tweet 2: [Content]
+       - Tweet 3: [Content]
+       [etc.]
+
+  expected_output: >
+    A markdown file containing complete, publication-ready social media content following 
+    the exact structure above. LinkedIn posts should be complete and fully formatted, 
+    ready to copy and paste for publishing.
+  agent: social_media_strategist
+
+review_task:
+  description: >
+    Enhance and optimize the social media content package. Don't just analyze - actively improve each piece:
+    
+    1. LinkedIn Posts Enhancement:
+       TAKE EACH POST AND:
+       - Strengthen the hook (first 2-3 lines)
+       - Add missing context where needed
+       - Improve storytelling flow
+       - Enhance formatting for better readability
+       - Upgrade the call-to-action
+       - Optimize hashtag selection
+       - Ensure post length is optimal (1300-2000 characters)
+    
+    2. Twitter Thread Enhancement:
+       IMPROVE THE THREAD BY:
+       - Rewriting the hook tweet for maximum impact
+       - Tightening the narrative flow
+       - Adding missing context or data points
+       - Strengthening transitions between tweets
+       - Making the call-to-action more compelling
+    
+    Output ONLY the enhanced versions in this format:
+
+    # ENHANCED LINKEDIN POSTS
+
+    ## Post 1: [Topic/Angle]
+    [Complete enhanced post]
+    #hashtag1 #hashtag2 #hashtag3 #hashtag4 #hashtag5
+
+    ## Post 2: [Topic/Angle]
+    [Complete enhanced post]
+    #hashtag1 #hashtag2 #hashtag3 #hashtag4 #hashtag5
+
+    ## Post 3: [Topic/Angle]
+    [Complete enhanced post]
+    #hashtag1 #hashtag2 #hashtag3 #hashtag4 #hashtag5
+
+    # ENHANCED TWITTER THREAD
+
+    1. [Enhanced hook tweet]
+    2. [Enhanced second tweet]
+    3. [Enhanced third tweet]
+    [Continue with all enhanced tweets]
+    #FinalHashtags
+
+  expected_output: >
+    Only the final, enhanced versions of all content, ready for immediate publication. 
+    No analysis or explanations - just the improved content.
+  agent: content_reviewer
