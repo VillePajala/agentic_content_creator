@@ -45,32 +45,21 @@ research_task:
 
 social_media_task:
   description: >
-    Create professional social media content for LinkedIn and Twitter/X that:
+    Create professional social media content on {topic} for LinkedIn and Twitter/X that:
     
     LINKEDIN CONTENT
-    - Write 3 complete thought leadership posts (1300-2000 characters)
+    - Write 5 complete thought leadership posts (1300-2000 characters)
     - Include compelling hooks and insights
-    - Add relevant hashtags
-    - End with strong call-to-actions
-    
-    TWITTER CONTENT
-    - Create viral-worthy thread (5-7 tweets)
-    - Start with powerful hook tweet
-    - Break down complex insights
-    - Include relevant hashtags
+    - Find interesting and personal viewpoints
+    - Write punchy ending
     
     Focus on creating content that drives professional engagement.
   expected_output: >
     A complete social media package with:
     
     LINKEDIN POSTS
-    Three distinct, full-length posts ready for publication
+    5 distinct, full-length posts ready for publication
     
-    TWITTER THREAD
-    Complete thread with hook and supporting tweets
-    
-    HASHTAG SETS
-    Strategic hashtags for each platform
   agent: social_media_strategist
 
 review_task:
@@ -81,21 +70,18 @@ review_task:
     - Add authentic personal angles
     - Include relatable examples
     - Share relevant experiences
-    - Make insights more actionable
+    - Point out the most important insights
     
     STRENGTHEN ENGAGEMENT
     - Improve story arcs
     - Add emotional hooks
     - Enhance value propositions
-    - Strengthen calls for discussion
+    - Strong human flow
   expected_output: >
     Final, enhanced versions of:
     
     LINKEDIN CONTENT
-    Three optimized posts ready for immediate publication
-    
-    TWITTER CONTENT
-    Polished thread ready for posting
+    5 optimized posts ready for immediate publication
     
     No analysis or explanations - just the improved content.
   agent: content_reviewer
