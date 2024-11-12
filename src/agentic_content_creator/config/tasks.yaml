@@ -43,83 +43,83 @@ research_task:
     All sources, quotes, and statistics properly cited
   agent: researcher
 
-design_task:
-  description: >
-    Create a strategic content blueprint based on the research. Your design should:
+#design_task:
+  #description: >
+    #Create a strategic content blueprint based on the research. Your design should:
     
-    STRUCTURE THE NARRATIVE
-    - Design the overall story arc
-    - Plan key message placement
-    - Map information flow
-    - Create engagement points
+    #STRUCTURE THE NARRATIVE
+    #- Design the overall story arc
+    #- Plan key message placement
+    #- Map information flow
+    #- Create engagement points
     
-    PLAN CONTENT ELEMENTS
-    - Craft headline options
-    - Design section flow
-    - Plan evidence placement
-    - Structure key takeaways
+    #PLAN CONTENT ELEMENTS
+    #- Craft headline options
+    #- Design section flow
+    #- Plan evidence placement
+    #- Structure key takeaways
     
-    OPTIMIZE FOR ENGAGEMENT
-    - Plan hook strategies
-    - Design aha-moments
-    - Create value-delivery points
-    - Structure call-to-actions
+    #OPTIMIZE FOR ENGAGEMENT
+    #- Plan hook strategies
+    #- Design aha-moments
+    #- Create value-delivery points
+    #- Structure call-to-actions
     
-    Focus on creating a blueprint that guides the writer to create compelling content.
-  expected_output: >
-    A detailed content blueprint including:
+    #Focus on creating a blueprint that guides the writer to create compelling content.
+  #expected_output: >
+    #A detailed content blueprint including:
     
-    CONTENT STRATEGY
-    Overall approach and key messages
+    #CONTENT STRATEGY
+    #Overall approach and key messages
     
-    DETAILED OUTLINE
-    Section-by-section breakdown with specific guidance
+    #DETAILED OUTLINE
+    #Section-by-section breakdown with specific guidance
     
-    ENGAGEMENT ELEMENTS
-    Hook strategies and value-delivery points
+    #ENGAGEMENT ELEMENTS
+    #Hook strategies and value-delivery points
     
-    WRITING GUIDELINES
-    Tone, style, and formatting recommendations
-  agent: blog_designer
+    #WRITING GUIDELINES
+    #Tone, style, and formatting recommendations
+  #agent: blog_designer
 
-writing_task:
-  description: >
-    Transform the blueprint and research into engaging content that:
+#writing_task:
+  #description: >
+    #Transform the blueprint and research into engaging content that:
     
-    CRAFT THE NARRATIVE
-    - Write compelling hooks
-    - Develop key arguments
-    - Create smooth transitions
-    - Build to key takeaways
+    #CRAFT THE NARRATIVE
+    #- Write compelling hooks
+    #- Develop key arguments
+    #- Create smooth transitions
+    #- Build to key takeaways
     
-    DELIVER VALUE
-    - Present clear insights
-    - Support with evidence
-    - Provide practical advice
-    - Create actionable steps
+    #DELIVER VALUE
+    #- Present clear insights
+    #- Support with evidence
+    #- Provide practical advice
+    #- Create actionable steps
     
-    OPTIMIZE QUALITY
-    - Maintain professional tone
-    - Ensure readability
-    - Polish formatting
-    - Check citations
+    #OPTIMIZE QUALITY
+    #- Maintain professional tone
+    #- Ensure readability
+    #- Polish formatting
+    #- Check citations
     
-    Focus on creating content worth sharing and implementing.
-  expected_output: >
-    A polished blog post that includes:
+    #Focus on creating content worth sharing and implementing.
+  #expected_output: >
+    #A polished blog post that includes:
     
-    ENGAGING INTRODUCTION
-    Hook and value proposition
+    #ENGAGING INTRODUCTION
+    #Hook and value proposition
     
-    MAIN CONTENT
-    Well-structured insights and evidence
+    #MAIN CONTENT
+    #Well-structured insights and evidence
     
-    PRACTICAL APPLICATION
-    Clear takeaways and next steps
+    #PRACTICAL APPLICATION
+    #Clear takeaways and next steps
     
-    PROFESSIONAL FINISH
-    Proper formatting and citations
-  agent: blog_writer
+    #PROFESSIONAL FINISH
+    #Proper formatting and citations
+  #agent: blog_writer
 
 social_media_task:
   description: >

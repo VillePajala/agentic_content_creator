@@ -5,7 +5,7 @@ from agentic_content_creator.types import Report
 import os
 
 search_tool = SerperDevTool()
-os.environ["OPENAI_MODEL_NAME"] = "gpt-4o"
+os.environ["OPENAI_MODEL_NAME"] = "o1-mini"
 
 @CrewBase
 class AgenticContentCreatorCrew():
@@ -19,21 +19,21 @@ class AgenticContentCreatorCrew():
 			verbose=True
 		)
 
-	@agent
-	def blog_designer(self) -> Agent:
-		return Agent(
-			config=self.agents_config['blog_designer'],
-			tools=[search_tool],
-			verbose=True
-		)
-	
-	@agent
-	def blog_writer(self) -> Agent:
-		return Agent(
-			config=self.agents_config['blog_writer'],
-			tools=[search_tool],
-			verbose=True
-		)
+	    # @agent
+		# def blog_designer(self) -> Agent:
+		#     return Agent(
+		#         config=self.agents_config['blog_designer'],
+		#         tools=[search_tool],
+		#         verbose=True
+		#     )
+		
+		# @agent
+		# def blog_writer(self) -> Agent:
+		#     return Agent(
+		#         config=self.agents_config['blog_writer'],
+		#         tools=[search_tool],
+		#         verbose=True
+		#     )
 
 	@agent
 	def social_media_strategist(self) -> Agent:
@@ -58,42 +58,29 @@ class AgenticContentCreatorCrew():
 			output_file='research.md'
 		)
 
-	@task
-	def design_task(self) -> Task:
-		return Task(
-			config=self.tasks_config['design_task'],
-			input_file='research.md',
-			context=[self.research_task()],
-			output_file='blog_outline.md'
-		)
-	
-	@task
-	def writing_task(self) -> Task:
-		return Task(
-			config=self.tasks_config['writing_task'],
-			context=[self.research_task(), self.design_task()],
-			output_file='blog.md'
-		)
+	# @task
+    # def design_task(self) -> Task:
+    #     return Task(
+    #         config=self.tasks_config['design_task'],
+    #         input_file='research.md',
+    #         context=[self.research_task()],
+    #         output_file='blog_outline.md'
+    #     )
+    
+    # @task
+    # def writing_task(self) -> Task:
+    #     return Task(
+    #         config=self.tasks_config['writing_task'],
+    #         context=[self.research_task(), self.design_task()],
+    #         output_file='blog.md'
+    #     )
 
 	@task
 	def social_media_task(self) -> Task:
 		return Task(
 			config=self.tasks_config['social_media_task'],
 			context=[
-				self.writing_task(),
-				self.research_task(),
-				{
-					"post_types": [
-						"personal_story",
-						"actionable_insight",
-						"thought_leadership"
-					],
-					"engagement_elements": {
-						"story_hooks": True,
-						"discussion_questions": True,
-						"call_to_action": True
-					}
-				}
+				self.research_task()
 			],
 			output_file='social_media_content.md'
 		)
@@ -104,8 +91,6 @@ class AgenticContentCreatorCrew():
 			config=self.tasks_config['review_task'],
 			context=[
 				self.social_media_task(),
-				self.writing_task(),
-				self.research_task()
 			],
 			output_file='final_social_media_content.md'
 		)
