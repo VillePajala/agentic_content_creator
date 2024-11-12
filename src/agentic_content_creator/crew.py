@@ -1,11 +1,22 @@
+from langtrace_python_sdk import langtrace
+from openai import OpenAI
 from crewai import Agent, Crew, Process, Task
 from crewai.project import CrewBase, agent, crew, task
 from crewai_tools import SerperDevTool
 from agentic_content_creator.types import Report
 import os
 
+# Initialize OpenAI client first
+client = OpenAI()
+
+# Then initialize langtrace
+langtrace.init(api_key=os.getenv('LANGTRACE_API_KEY'))
+
 search_tool = SerperDevTool()
-os.environ["OPENAI_MODEL_NAME"] = "o1-mini"
+
+
+
+
 
 @CrewBase
 class AgenticContentCreatorCrew():
@@ -18,22 +29,6 @@ class AgenticContentCreatorCrew():
 			tools=[search_tool],
 			verbose=True
 		)
-
-	    # @agent
-		# def blog_designer(self) -> Agent:
-		#     return Agent(
-		#         config=self.agents_config['blog_designer'],
-		#         tools=[search_tool],
-		#         verbose=True
-		#     )
-		
-		# @agent
-		# def blog_writer(self) -> Agent:
-		#     return Agent(
-		#         config=self.agents_config['blog_writer'],
-		#         tools=[search_tool],
-		#         verbose=True
-		#     )
 
 	@agent
 	def social_media_strategist(self) -> Agent:

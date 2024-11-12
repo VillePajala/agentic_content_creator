@@ -3,11 +3,14 @@ import sys
 from agentic_content_creator.crew import AgenticContentCreatorCrew
 import os
 import glob
+from dotenv import load_dotenv
+from langtrace_python_sdk import langtrace
 
-# This main file is intended to be a way for you to run your
-# crew locally, so refrain from adding unnecessary logic into this file.
-# Replace with inputs you want to test with, it will automatically
-# interpolate any tasks and agents information
+load_dotenv()  # Load environment variables from .env file
+langtrace.init(api_key=os.getenv('LANGTRACE_API_KEY'))
+
+os.environ['OPENAI_MODEL_NAME'] = 'gpt-4o'
+
 
 def run():
     """
