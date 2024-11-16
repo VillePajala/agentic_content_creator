@@ -5,15 +5,12 @@ description = "agentic_content_creator using crewAI"
 authors = [{ name = "Your Name", email = "you@example.com" }]
 requires-python = ">=3.10,<=3.13"
 dependencies = [
-    "crewai[tools]>=0.76.2,<1.0.0"
+    "crewai[tools]>=0.76.2,<1.0.0",
 ]
 
 [project.scripts]
-agentic_content_creator = "agentic_content_creator.main:run"
-run_crew = "agentic_content_creator.main:run"
-train = "agentic_content_creator.main:train"
-replay = "agentic_content_creator.main:replay"
-test = "agentic_content_creator.main:test"
+kickoff = "agentic_content_creator.main:kickoff"
+plot = "agentic_content_creator.main:plot"
 
 [build-system]
 requires = ["hatchling"]
