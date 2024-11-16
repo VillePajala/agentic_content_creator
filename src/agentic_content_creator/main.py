@@ -1,71 +1,61 @@
 #!/usr/bin/env python
-import sys
-from agentic_content_creator.crew import AgenticContentCreatorCrew
+from random import randint
+
+from pydantic import BaseModel
+
+from crewai.flow.flow import Flow, listen, start
 import os
-import glob
-from dotenv import load_dotenv
-from langtrace_python_sdk import langtrace
 
-load_dotenv()  # Load environment variables from .env file
-langtrace.init(api_key=os.getenv('LANGTRACE_API_KEY'))
+from .crews.research_crew.research_crew import ResearchCrew
+from .crews.content_crew.content_crew import ContentCrew
 
-os.environ['OPENAI_MODEL_NAME'] = 'gpt-4o'
-
-
-def run():
-    """
-    Run the crew.
-    """
-    inputs = {
-        'topic': "Open AI's new model Orion"
+class ContentCreatorFlow(Flow):
+    # Define required input variables
+    input_variables = {
+        "topic": "AI and Machine Learning",  # Default value
+        "audience_level": "beginner",        # Default value
+        # Add any other required variables
     }
-    AgenticContentCreatorCrew().crew().kickoff(inputs=inputs)
 
+    @start()
+    def start_research(self):
+        print("Starting research")
+        # Pass input variables to ResearchCrew
+        result = ResearchCrew().crew().kickoff(self.input_variables)
+        print("Research completed")
+        return result.raw
 
-def train():
-    """
-    Train the crew for a given number of iterations.
-    """
-    inputs = {
-        "topic": "Open AI's new model Orion"
-    }
-    try:
-        AgenticContentCreatorCrew().crew().train(n_iterations=int(sys.argv[1]), filename=sys.argv[2], inputs=inputs)
+    @listen(start_research)
+    def create_content(self, research):
+        print("Creating content")
+        # Combine research results with input variables
+        inputs = {
+            **self.input_variables,  # Include all input variables
+            "research": research     # Add research results
+        }
+        result = ContentCrew().crew().kickoff(inputs)
+        print("Content created")
+        return result.raw
 
-    except Exception as e:
-        raise Exception(f"An error occurred while training the crew: {e}")
+    @listen(create_content)
+    def save_content(self, content):
+        print("Saving content")
+        output_dir = "output"
+        os.makedirs(output_dir, exist_ok=True)
+        
+        # Use topic from input variables for the filename
+        file_name = f"{self.input_variables['topic'].replace(' ', '_')}.txt"
+        output_path = os.path.join(output_dir, file_name)
+        
+        with open(output_path, "w") as f:
+            f.write(content)
 
-def replay():
-    """
-    Replay the crew execution from a specific task.
-    """
-    try:
-        AgenticContentCreatorCrew().crew().replay(task_id=sys.argv[1])
+def kickoff():
+    content_flow = ContentCreatorFlow()
+    # You can override default input variables here if needed
+    # content_flow.input_variables["topic"] = "Different Topic"
+    content_flow.kickoff()
 
-    except Exception as e:
-        raise Exception(f"An error occurred while replaying the crew: {e}")
-
-def test():
-    """
-    Test the crew execution and returns the results.
-    """
-    inputs = {
-        "topic": "Open AI's new model Orion"
-    }
-    try:
-        AgenticContentCreatorCrew().crew().test(n_iterations=int(sys.argv[1]), openai_model_name=sys.argv[2], inputs=inputs)
-
-    except Exception as e:
-        raise Exception(f"An error occurred while replaying the crew: {e}")
-
-def cleanup_output_files():
-    # Define the pattern for markdown files
-    pattern = os.path.join(os.path.dirname(__file__), '*.md')
-    # Find and delete all markdown files except README.md
-    for file_path in glob.glob(pattern):
-        if os.path.basename(file_path).lower() != 'readme.md':
-            try:
-                os.remove(file_path)
-                print(f"Deleted: {file_path}")
-            except Exception as e:
-                print(f"Error deleting {file_path}: {e}")
+def plot():
+    content_flow = ContentCreatorFlow()
+    content_flow.plot()
