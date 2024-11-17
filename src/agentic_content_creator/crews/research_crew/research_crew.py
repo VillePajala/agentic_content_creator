@@ -1,15 +1,26 @@
-from crewai import Agent, Crew, Process, Task
+import os
+from crewai import Agent, Crew, Process, Task, LLM
 from crewai.project import CrewBase, agent, crew, task
+from crewai_tools import SerperDevTool
+from pydantic import BaseModel
+from typing import List
 
-# Uncomment the following line to use an example of a custom tool
-# from research_crew.tools.custom_tool import MyCustomTool
+# Import LLM configuration
 
-# Check our tools documentations for more information on how to use them
-# from crewai_tools import SerperDevTool
+class LinkedInPost(BaseModel):
+	hook: str
+	why_matters: str
+	main_insight: str
+	supporting_points: List[str]
+	formatting_suggestions: str
+	sources: List[str]
+
+class ContentPlan(BaseModel):
+	posts: List[LinkedInPost]
 
 @CrewBase
 class ResearchCrew():
-	"""ResearchCrew crew"""
+	"""ResearchCrew for LinkedIn content creation"""
 
 	agents_config = 'config/agents.yaml'
 	tasks_config = 'config/tasks.yaml'
@@ -18,14 +29,14 @@ class ResearchCrew():
 	def researcher(self) -> Agent:
 		return Agent(
 			config=self.agents_config['researcher'],
-			# tools=[MyCustomTool()], # Example of custom tool, loaded on the beginning of file
+			tools=[SerperDevTool()],
 			verbose=True
 		)
 
 	@agent
-	def reporting_analyst(self) -> Agent:
+	def planner(self) -> Agent:
 		return Agent(
-			config=self.agents_config['reporting_analyst'],
+			config=self.agents_config['planner'],
 			verbose=True
 		)
 
@@ -36,19 +47,19 @@ class ResearchCrew():
 		)
 
 	@task
-	def reporting_task(self) -> Task:
+	def planning_task(self) -> Task:
 		return Task(
-			config=self.tasks_config['reporting_task'],
-			output_file='report.md'
+			config=self.tasks_config['planning_task'],
+			output_pydantic=ContentPlan,
+			output_file='content_plan.md'
 		)
 
 	@crew
 	def crew(self) -> Crew:
 		"""Creates the ResearchCrew crew"""
 		return Crew(
-			agents=self.agents, # Automatically created by the @agent decorator
-			tasks=self.tasks, # Automatically created by the @task decorator
+			agents=self.agents,
+			tasks=self.tasks,
 			process=Process.sequential,
-			verbose=True,
-			# process=Process.hierarchical, # In case you wanna use that instead https://docs.crewai.com/how-to/Hierarchical/
+			verbose=True
 		)

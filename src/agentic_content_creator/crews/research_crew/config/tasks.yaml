@@ -18,15 +18,18 @@ research_task:
 planning_task:
   description: >
     Review the research findings and develop a strategic plan for creating engaging LinkedIn
-    content about {topic}. The plan should outline how to present the information in a way
-    that resonates with LinkedIn's professional audience. Consider the most impactful way
-    to structure the key messages, how to build a compelling narrative flow, and which
-    supporting evidence will be most persuasive. Focus on creating content that will
-    drive meaningful professional engagement and discussion.
+    posts about {topic}. Focus on crafting attention-grabbing hooks that immediately draw
+    readers in, followed by a clear explanation of why the topic matters to professionals.
+    Each post should deliver a specific insight or actionable solution, presented in a
+    concise, easy-to-read format. Ensure the content is structured to maintain reader
+    interest and encourage engagement while keeping the message focused and digestible.
   expected_output: >
-    A detailed LinkedIn content plan that outlines content themes and main topics. Each
-    section should include a clear subtitle, main message and goal, explanation of why
-    it matters to the audience, key supporting points, and referenced sources. The plan
-    should provide clear guidance on content presentation and suggest angles for maximum
-    engagement on LinkedIn's professional platform.
+    A detailed plan for 10 LinkedIn posts, where each post includes:
+    - An attention-grabbing hook to open with
+    - A clear explanation of why the topic matters to the audience
+    - A specific insight or actionable solution
+    - Key supporting points, presented concisely
+    - Suggested formatting for readability (e.g., bullet points, line breaks)
+    - Referenced sources
+    The plan should prioritize brevity and clarity while maintaining professional value.
   agent: planner
