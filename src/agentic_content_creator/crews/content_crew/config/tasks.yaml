@@ -7,11 +7,40 @@ research_task:
     A list with 10 bullet points of the most relevant information about {topic}
   agent: researcher
 
-reporting_task:
+writing_task:
   description: >
-    Review the context you got and expand each topic into a full section for a report.
-    Make sure the report is detailed and contains any and all relevant information.
+    Create engaging LinkedIn content for {topic} based on the provided research, your existing knowledge, and post plan. 
+    The content should follow LinkedIn best practices, be concise yet valuable, and maintain professional tone. Focus on 
+    creating content that delivers meaningful insights with strong foundational content.
+
+    Post Plan: {post_plan}
   expected_output: >
-    A fully fledge reports with the mains topics, each with a full section of information.
-    Formatted as markdown without '```'
-  agent: reporting_analyst
+    A well-crafted LinkedIn post that effectively communicates key insights about {topic}. The content should be:
+    - Built on strong, valuable base content
+    - Formatted for optimal LinkedIn engagement (using line breaks, emojis where appropriate)
+    - Written in a professional yet conversational tone
+    - Include hooks
+    - Stay within LinkedIn's optimal character limits
+    - Use bullet points or numbered lists for better readability
+    - Include thought-provoking questions or insights to encourage engagement
+
+    Provide only the content, no additional notes or explanations.
+  agent: content_writer
+
+editing_task:
+  description: >
+    Review and optimize the LinkedIn content for {topic}. Ensure it follows platform best practices, maintains professional 
+    quality, and maximizes potential engagement. Pay special attention to the strength of the base content, formatting, 
+    hooks, and clarity while preserving valuable insights and technical accuracy.
+
+    Post Plan: {post_plan}
+  expected_output: >
+    A polished and optimized LinkedIn post that:
+    - Has strong, valuable base content
+    - Has strong opening hooks
+    - Uses effective LinkedIn formatting
+    - Maintains professional tone while being engaging
+    - Optimizes character count for platform performance
+    
+    Return only the final content, no editing notes or feedback.
+  agent: editor

@@ -1,54 +1,68 @@
+from ...config import LLM_CONFIG
 from crewai import Agent, Crew, Process, Task
 from crewai.project import CrewBase, agent, crew, task
-
-# Uncomment the following line to use an example of a custom tool
-# from content_crew.tools.custom_tool import MyCustomTool
-
-# Check our tools documentations for more information on how to use them
-# from crewai_tools import SerperDevTool
+import os
+from src.agentic_content_creator.config import CONTENT_CREATOR_INPUT_VARIABLES
 
 @CrewBase
 class ContentCrew():
-	"""ContentCrew crew"""
+	input_variables = CONTENT_CREATOR_INPUT_VARIABLES
+	"""ContentCrew for LinkedIn content creation"""
 
 	agents_config = 'config/agents.yaml'
 	tasks_config = 'config/tasks.yaml'
 
+	def __post_init__(self):
+		self.ensure_output_folder_exists()
+
+	def ensure_output_folder_exists(self):
+		"""Ensure the output folder exists."""
+		output_folder = 'output'
+		if not os.path.exists(output_folder):
+			os.makedirs(output_folder)
+
 	@agent
-	def researcher(self) -> Agent:
+	def content_writer(self) -> Agent:
 		return Agent(
-			config=self.agents_config['researcher'],
-			# tools=[MyCustomTool()], # Example of custom tool, loaded on the beginning of file
+			config=self.agents_config['content_writer'],
 			verbose=True
 		)
 
 	@agent
-	def reporting_analyst(self) -> Agent:
+	def editor(self) -> Agent:
 		return Agent(
-			config=self.agents_config['reporting_analyst'],
+			config=self.agents_config['editor'],
 			verbose=True
 		)
 
 	@task
-	def research_task(self) -> Task:
+	def writing_task(self) -> Task:
+		topic = self.input_variables.get("topic")
+		file_name = f"linkedin_post_{topic}_draft.md".replace(" ", "_")
+		output_file_path = os.path.join('output', file_name)
+		
 		return Task(
-			config=self.tasks_config['research_task'],
+			config=self.tasks_config['writing_task'],
+			output_file=output_file_path
 		)
 
 	@task
-	def reporting_task(self) -> Task:
+	def editing_task(self) -> Task:
+		topic = self.input_variables.get("topic")
+		file_name = f"linkedin_post_{topic}_final.md".replace(" ", "_")
+		output_file_path = os.path.join('output', file_name)
+		
 		return Task(
-			config=self.tasks_config['reporting_task'],
-			output_file='report.md'
+			config=self.tasks_config['editing_task'],
+			output_file=output_file_path
 		)
 
 	@crew
 	def crew(self) -> Crew:
-		"""Creates the ContentCrew crew"""
+		"""Creates the LinkedIn Content Creation crew"""
 		return Crew(
-			agents=self.agents, # Automatically created by the @agent decorator
-			tasks=self.tasks, # Automatically created by the @task decorator
+			agents=self.agents,
+			tasks=self.tasks,
 			process=Process.sequential,
-			verbose=True,
-			# process=Process.hierarchical, # In case you wanna use that instead https://docs.crewai.com/how-to/Hierarchical/
+			verbose=True
 		)
