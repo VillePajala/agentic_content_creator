@@ -1,19 +1,9 @@
-research_task:
-  description: >
-    Conduct a thorough research about {topic}
-    Make sure you find any interesting and relevant information given
-    the current year is 2024.
-  expected_output: >
-    A list with 10 bullet points of the most relevant information about {topic}
-  agent: researcher
-
 writing_task:
   description: >
-    Create engaging LinkedIn content for {topic} based on the provided research, your existing knowledge, and post plan. 
-    The content should follow LinkedIn best practices, be concise yet valuable, and maintain professional tone. Focus on 
-    creating content that delivers meaningful insights with strong foundational content.
+    Create engaging LinkedIn content for {topic} based on the provided research and your existing knowledge. 
+    The content should follow LinkedIn best practices, be concise yet valuable, and maintain professional tone.
 
-    Post Plan: {post_plan}
+    Content to Create: {post}
   expected_output: >
     A well-crafted LinkedIn post that effectively communicates key insights about {topic}. The content should be:
     - Built on strong, valuable base content
@@ -33,7 +23,7 @@ editing_task:
     quality, and maximizes potential engagement. Pay special attention to the strength of the base content, formatting, 
     hooks, and clarity while preserving valuable insights and technical accuracy.
 
-    Post Plan: {post_plan}
+    Content to Edit: {post}
   expected_output: >
     A polished and optimized LinkedIn post that:
     - Has strong, valuable base content

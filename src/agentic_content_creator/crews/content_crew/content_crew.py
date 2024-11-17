@@ -37,19 +37,14 @@ class ContentCrew():
 
 	@task
 	def writing_task(self) -> Task:
-		topic = self.input_variables.get("topic")
-		file_name = f"linkedin_post_{topic}_draft.md".replace(" ", "_")
-		output_file_path = os.path.join('output', file_name)
-		
 		return Task(
 			config=self.tasks_config['writing_task'],
-			output_file=output_file_path
 		)
 
 	@task
 	def editing_task(self) -> Task:
 		topic = self.input_variables.get("topic")
-		file_name = f"linkedin_post_{topic}_final.md".replace(" ", "_")
+		file_name = f"{topic}.md".replace(" ", "_")
 		output_file_path = os.path.join('output', file_name)
 		
 		return Task(
@@ -59,10 +54,11 @@ class ContentCrew():
 
 	@crew
 	def crew(self) -> Crew:
-		"""Creates the LinkedIn Content Creation crew"""
+		"""Creates the EduContentWriter crew"""
 		return Crew(
-			agents=self.agents,
-			tasks=self.tasks,
+			agents=self.agents, # Automatically created by the @agent decorator
+			tasks=self.tasks, # Automatically created by the @task decorator
 			process=Process.sequential,
-			verbose=True
+			verbose=True,
+			# process=Process.hierarchical, # In case you wanna use that instead https://docs.crewai.com/how-to/Hierarchical/
 		)

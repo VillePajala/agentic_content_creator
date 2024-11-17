@@ -18,8 +18,7 @@ LLM_CONFIGS = {
 LLM_CONFIG = LLM_CONFIGS["openai"] # Change this to switch between LLMs
 
 EDU_FLOW_INPUT_VARIABLES = {
-    "audience_level": "intermediate",
-    "topic": "Automated reasoning"
+    "topic": "LLM test time trainging"
 }
 
 CONTENT_CREATOR_INPUT_VARIABLES = {
