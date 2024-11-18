@@ -27,19 +27,34 @@ class ContentCreatorFlow(Flow):
 
     @listen(generate_linkedin_content)
     def save_to_markdown(self, content):
+        print("Saving LinkedIn posts")
         output_dir = "output"
         os.makedirs(output_dir, exist_ok=True)
         
         topic = self.input_variables.get("topic")
-        file_name = f"linkedin_posts_{topic}.md".replace(" ", "_")
-        output_path = os.path.join(output_dir, file_name)
-        
-        with open(output_path, "w", encoding='utf-8') as f:
-            for post in content:
+        saved_files = []
+
+        # Create separate file for each post
+        for index, post in enumerate(content, 1):
+            file_name = f"linkedin_post_{topic}_{index}.md".replace(" ", "_").lower()
+            output_path = os.path.join(output_dir, file_name)
+            
+            # Use UTF-8 encoding to handle emojis
+            with open(output_path, "w", encoding='utf-8') as f:
                 f.write(post)
-                f.write("\n\n---\n\n")  # Add separator between posts
+            
+            saved_files.append(output_path)
+            print(f"LinkedIn post {index} saved to: {output_path}")
         
-        print(f"LinkedIn posts saved to: {output_path}")
+        # Create a summary file with all posts (optional)
+        summary_file = os.path.join(output_dir, f"linkedin_posts_{topic}_all.md".replace(" ", "_").lower())
+        with open(summary_file, "w", encoding='utf-8') as f:
+            for index, post in enumerate(content, 1):
+                f.write(f"# Post {index}\n\n")
+                f.write(post)
+                f.write("\n\n---\n\n")
+            
+        print(f"All posts also saved to: {summary_file}")
         return content
 
 def kickoff():

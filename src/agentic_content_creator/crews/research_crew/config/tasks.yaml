@@ -1,35 +1,123 @@
 research_task:
   description: >
-    Conduct thorough research about {topic} using the serper search tool.
-    Focus on finding information that would be valuable for creating engaging LinkedIn content.
-    Make sure you find any interesting and relevant information given the current year is 2024.
-    Search for current trends and discussions in the field, valuable industry insights,
-    compelling success stories, relevant statistics, and expert opinions that could
-    enrich LinkedIn content. Pay special attention to recent developments and
-    discussions that are generating significant engagement among professionals.
+    Conduct thorough research on {topic} to create a foundation for multiple LinkedIn posts. 
+    
+    Research the following key aspects:
+
+    1. Core Technical Understanding:
+       - Fundamental concepts and principles
+       - Key technologies or methodologies involved
+       - Industry standards and best practices
+       - Common challenges and solutions
+
+    2. Latest Developments:
+       - Recent breakthroughs or innovations
+       - New trends and emerging patterns
+       - Industry shifts and transformations
+       - Notable case studies or success stories
+
+    3. Professional Impact Analysis:
+       - Business implications and opportunities
+       - Career impact and skill requirements
+       - Industry adoption rates and barriers
+       - Future outlook and predictions
+
+    4. Engagement Angles:
+       - Controversial or debated aspects
+       - Common misconceptions
+       - Surprising facts or statistics
+       - Real-world applications
+
+    5. Source Credibility:
+       - Use authoritative sources
+       - Include recent studies and reports
+       - Reference industry leaders' perspectives
+       - Find relevant statistics and data points
+
+    For each finding, consider:
+    - Why would LinkedIn professionals care about this?
+    - What unique insights can be shared?
+    - How can this generate meaningful engagement?
+    - What storytelling angles could work?
+
   expected_output: >
-    A comprehensive research report on {topic} with relevant information that can be transformed
-    into compelling LinkedIn content. The report should present key findings and insights,
-    highlight trending discussions, include notable statistics, and incorporate expert
-    perspectives. All information should be properly referenced with sources clearly cited
-    throughout the document.
+    Provide a structured research output with 5-7 distinct content themes that could become separate LinkedIn posts. 
+    Each theme should include:
+    - Main insight or finding (what makes this interesting?)
+    - Supporting evidence and data (what proves this is important?)
+    - Potential hooks (how to grab attention?)
+    - Source citations (what makes this credible?)
+    - Unique angles for professional audience (why should LinkedIn users care?)
+    
+    Format each theme to be easily transformed into compelling LinkedIn content.
+    Focus on insights that would generate meaningful engagement from professionals.
+
   agent: researcher
 
 planning_task:
   description: >
-    Review the research findings and develop a strategic plan for creating engaging LinkedIn
-    posts about {topic}. Focus on crafting attention-grabbing hooks that immediately draw
-    readers in, followed by a clear explanation of why the topic matters to professionals.
-    Each post should deliver a specific insight or actionable solution, presented in a
-    concise, easy-to-read format. Ensure the content is structured to maintain reader
-    interest and encourage engagement while keeping the message focused and digestible.
+    Transform the research findings into a strategic LinkedIn content plan for {topic}. 
+    
+    Follow these strategic planning steps:
+
+    1. Content Analysis & Selection
+       - Evaluate research findings for highest-value insights
+       - Identify themes that will resonate most with LinkedIn professionals
+       - Prioritize content that combines novelty with practical value
+       - Look for narrative threads that could connect multiple posts
+
+    2. Audience Psychology
+       - Consider what triggers professional curiosity
+       - Identify pain points and aspirations
+       - Plan emotional hooks that remain professional
+       - Target content to drive meaningful discussions
+
+    3. Post Structure Design
+       - Craft hooks that stop the scroll
+       - Plan narrative flow for maximum impact
+       - Design supporting points hierarchy
+       - Structure for optimal readability
+
+    4. Engagement Strategy
+       - Plan strategic question placement
+       - Design conversation-starting elements
+       - Create natural call-to-action moments
+       - Plan hashtag strategy for reach
+
+    5. Content Series Architecture
+       - Design post sequence for maximum impact
+       - Create thematic connections between posts
+       - Plan content variety and pacing
+       - Ensure each post works independently and as part of series
+
+    6. Platform Optimization
+       - Optimize for LinkedIn's algorithm
+       - Plan for mobile-first reading
+       - Consider timing and frequency
+       - Design for professional context
+
+    Key Considerations:
+    - How does each post provide unique value?
+    - What makes professionals want to engage?
+    - How does the content establish expertise?
+    - What triggers sharing behavior?
+    - How can the format enhance the message?
+
   expected_output: >
-    A detailed plan for 10 LinkedIn posts, where each post includes:
-    - An attention-grabbing hook to open with
-    - A clear explanation of why the topic matters to the audience
-    - A specific insight or actionable solution
-    - Key supporting points, presented concisely
-    - Suggested formatting for readability (e.g., bullet points, line breaks)
-    - Referenced sources
-    The plan should prioritize brevity and clarity while maintaining professional value.
+    Create a detailed ContentPlan with 5-7 LinkedInPost objects. Each post should include:
+    - hook: Attention-grabbing opening that stops the scroll
+    - why_matters: Clear value proposition for professionals
+    - main_insight: Core message with unique perspective
+    - supporting_points: Evidence, examples, and implications
+    - formatting_suggestions: Layout optimization for LinkedIn
+    - sources: Credible references that build authority
+
+    Ensure the content series:
+    - Maintains professional tone while being engaging
+    - Builds narrative connections between posts
+    - Optimizes each post for LinkedIn's platform
+    - Creates clear value for the audience
+    - Encourages meaningful professional discussion
+
   agent: planner
+  output_pydantic: ContentPlan
