@@ -5,8 +5,7 @@ from crewai_tools import SerperDevTool
 from pydantic import BaseModel
 from typing import List
 
-# Import LLM configuration
-
+# Define pydantic models in the same file
 class LinkedInPost(BaseModel):
 	hook: str
 	why_matters: str

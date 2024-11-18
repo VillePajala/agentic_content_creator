@@ -1,108 +1,65 @@
 writing_task:
   description: >
-    Create an engaging LinkedIn post based on the provided content plan. Transform the structured plan into 
-    a compelling narrative that resonates with professional audiences.
-
-    Follow these writing guidelines:
-    1. Hook Creation
-       - Start with an attention-grabbing opening
-       - Create immediate professional relevance
-       - Generate curiosity within first line
-
-    2. Core Message Development
-       - Present main insight clearly
-       - Connect to professional context
-       - Build on research-backed evidence
-       - Maintain thought leadership position
-
-    3. Narrative Structure
-       - Use clear, logical progression
-       - Build tension/interest
-       - Lead to key takeaways
-       - Create memorable conclusions
-
-    4. Engagement Elements
-       - Incorporate natural questions
-       - Add relatable examples
-       - Include conversation starters
-       - Create share-worthy moments
-
-    5. Professional Voice
-       - Balance expertise with accessibility
-       - Use authentic, confident tone
-       - Maintain credibility
-       - Show industry understanding
-
+    Create a professional LinkedIn post based on the provided content plan. Transform the research insights into 
+    a compelling, authoritative narrative that delivers clear value to a professional audience.
+    Writing Guidelines:
+    1. Professional Structure
+       - Begin with a clear, compelling opening that establishes expertise
+       - Present the main insight with authority and precision
+       - Support with concrete evidence and professional experience
+       - Conclude with actionable takeaways or thought-provoking insights
+    2. Content Quality
+       - Focus on depth over surface-level observations
+       - Maintain consistent professional tone throughout
+       - Balance technical accuracy with accessibility
+       - Incorporate relevant industry context and implications
+    3. Engagement Approach
+       - Foster meaningful professional discussion
+       - Include thoughtful questions that prompt expert insights
+       - Reference industry trends and developments
+       - Create natural opportunities for knowledge sharing
     Content to Create: {post}
-
   expected_output: >
-    A well-crafted LinkedIn post that:
-    - Opens with a powerful hook
-    - Delivers clear professional value
-    - Maintains engaging flow
-    - Encourages meaningful interaction
-    - Fits LinkedIn's optimal format
-    - Includes strategic hashtags
-
-    Provide only the content, no additional notes.
+    Deliver a cohesive, professional LinkedIn post that:
+    - Demonstrates thought leadership
+    - Provides substantial industry insights
+    - Maintains consistent professional tone
+    - Encourages meaningful professional dialogue
+    - Adheres to LinkedIn's length guidelines
+    - Uses strategic but minimal formatting for readability
   agent: content_writer
 
 editing_task:
   description: >
-    Review and optimize the LinkedIn post for maximum impact and engagement while maintaining 
-    professional standards and platform optimization.
-
-    Review and enhance these elements:
-    1. Hook Effectiveness
-       - Immediate attention grab
-       - Professional relevance
-       - Curiosity generation
-
-    2. Content Structure
-       - Logical flow
-       - Information hierarchy
-       - Key point emphasis
-       - White space utilization
-
-    3. Engagement Elements
-       - Strategic question placement
-       - Call-to-action strength
-       - Discussion triggers
-       - Share-worthy moments
-
-    4. Platform Optimization
-       - Character count (optimal: 1,300)
-       - Line break usage
-       - Emoji placement
-       - Hashtag strategy
-
-    5. Professional Standards
-       - Tone consistency
-       - Credibility markers
-       - Value proposition clarity
+    Review and refine the LinkedIn post to ensure it meets the highest standards of professional communication
+    while maximizing engagement potential.
+    Focus Areas:
+    1. Content Quality
+       - Clarity and precision of message
+       - Logical flow and argumentation
+       - Technical accuracy and credibility
+       - Professional tone consistency
+    2. Structure Optimization
+       - Clear paragraph progression
+       - Effective use of white space
+       - Strategic placement of key points
+       - Natural content flow
+    3. Professional Standards
+       - Industry-appropriate terminology
+       - Citation of credible sources
+       - Balanced perspective
        - Authority establishment
-
-    6. Technical Elements
-       - Grammar and clarity
-       - Formatting consistency
-       - Link placement
-       - Mobile readability
-
-    Focus on:
-    - Maintaining the core message while enhancing delivery
-    - Optimizing for both skimming and deep reading
-    - Ensuring each element serves a strategic purpose
-    - Maximizing engagement without compromising professionalism
-
+    4. Engagement Elements
+       - Professional discussion prompts
+       - Knowledge-sharing opportunities
+       - Industry relevance
+       - Call to professional action
     Content to Edit: {post}
-
   expected_output: >
-    A polished and optimized LinkedIn post that:
-    - Has maximum impact potential
-    - Is perfectly formatted for LinkedIn
-    - Maintains professional standards
-    - Encourages meaningful engagement
-    - Optimizes for both algorithm and audience
-    
-    Return only the final content, no editing notes.
+    Provide a polished LinkedIn post that:
+    - Demonstrates clear thought leadership
+    - Maintains consistent professional tone
+    - Presents ideas with clarity and authority
+    - Encourages meaningful professional dialogue
+    - Optimizes readability through clean formatting
   agent: editor

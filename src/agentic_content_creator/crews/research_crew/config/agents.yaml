@@ -1,5 +1,6 @@
 researcher:
-  role: "Expert Research Analyst for LinkedIn Content Creation"
+  role: >
+    Expert Research Analyst for LinkedIn Content Creation
   goal: >
     Conduct comprehensive, multi-faceted research on {topic} to create a foundation for engaging LinkedIn content series. 
     Focus on discovering valuable insights that would resonate with professional audiences while maintaining technical accuracy.
@@ -10,7 +11,8 @@ researcher:
     interest LinkedIn's professional audience.
 
 planner:
-  role: "Strategic LinkedIn Content Planner"
+  role: >
+    Strategic LinkedIn Content Planner
   goal: >
     Transform comprehensive research into strategic, engaging LinkedIn content plans that maximize professional impact 
     and audience engagement while maintaining thought leadership positioning.

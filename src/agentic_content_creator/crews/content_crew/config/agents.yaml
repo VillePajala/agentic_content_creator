@@ -1,5 +1,6 @@
 content_writer:
-  role: "LinkedIn Content Creation Specialist"
+  role: >
+    "LinkedIn Content Creation Specialist"
   goal: >
     Transform strategic content plans into engaging, high-impact LinkedIn posts that combine professional insights 
     with compelling storytelling while maintaining authenticity and driving meaningful engagement.
@@ -10,7 +11,8 @@ content_writer:
     LinkedIn's professional audience.
 
 editor:
-  role: "LinkedIn Content Optimization Expert"
+  role: >
+    LinkedIn Content Optimization Expert
   goal: >
     Refine and optimize LinkedIn content to maximize impact, engagement, and professional value while ensuring 
     perfect platform fit and maintaining the highest standards of quality.

@@ -1,45 +1,37 @@
 research_task:
   description: >
     Conduct thorough research on {topic} to create a foundation for multiple LinkedIn posts. 
-    
     Research the following key aspects:
-
     1. Core Technical Understanding:
        - Fundamental concepts and principles
        - Key technologies or methodologies involved
        - Industry standards and best practices
        - Common challenges and solutions
-
     2. Latest Developments:
        - Recent breakthroughs or innovations
        - New trends and emerging patterns
        - Industry shifts and transformations
        - Notable case studies or success stories
-
     3. Professional Impact Analysis:
        - Business implications and opportunities
        - Career impact and skill requirements
        - Industry adoption rates and barriers
        - Future outlook and predictions
-
     4. Engagement Angles:
        - Controversial or debated aspects
        - Common misconceptions
        - Surprising facts or statistics
        - Real-world applications
-
     5. Source Credibility:
        - Use authoritative sources
        - Include recent studies and reports
        - Reference industry leaders' perspectives
        - Find relevant statistics and data points
-
     For each finding, consider:
     - Why would LinkedIn professionals care about this?
     - What unique insights can be shared?
     - How can this generate meaningful engagement?
     - What storytelling angles could work?
-
   expected_output: >
     Provide a structured research output with 5-7 distinct content themes that could become separate LinkedIn posts. 
     Each theme should include:
@@ -48,61 +40,50 @@ research_task:
     - Potential hooks (how to grab attention?)
     - Source citations (what makes this credible?)
     - Unique angles for professional audience (why should LinkedIn users care?)
-    
     Format each theme to be easily transformed into compelling LinkedIn content.
     Focus on insights that would generate meaningful engagement from professionals.
-
   agent: researcher
 
 planning_task:
   description: >
     Transform the research findings into a strategic LinkedIn content plan for {topic}. 
-    
     Follow these strategic planning steps:
-
     1. Content Analysis & Selection
        - Evaluate research findings for highest-value insights
        - Identify themes that will resonate most with LinkedIn professionals
        - Prioritize content that combines novelty with practical value
        - Look for narrative threads that could connect multiple posts
-
     2. Audience Psychology
        - Consider what triggers professional curiosity
        - Identify pain points and aspirations
        - Plan emotional hooks that remain professional
        - Target content to drive meaningful discussions
-
     3. Post Structure Design
        - Craft hooks that stop the scroll
        - Plan narrative flow for maximum impact
        - Design supporting points hierarchy
        - Structure for optimal readability
-
     4. Engagement Strategy
        - Plan strategic question placement
        - Design conversation-starting elements
        - Create natural call-to-action moments
        - Plan hashtag strategy for reach
-
     5. Content Series Architecture
        - Design post sequence for maximum impact
        - Create thematic connections between posts
        - Plan content variety and pacing
        - Ensure each post works independently and as part of series
-
     6. Platform Optimization
        - Optimize for LinkedIn's algorithm
        - Plan for mobile-first reading
        - Consider timing and frequency
        - Design for professional context
-
     Key Considerations:
     - How does each post provide unique value?
     - What makes professionals want to engage?
     - How does the content establish expertise?
     - What triggers sharing behavior?
     - How can the format enhance the message?
-
   expected_output: >
     Create a detailed ContentPlan with 5-7 LinkedInPost objects. Each post should include:
     - hook: Attention-grabbing opening that stops the scroll
@@ -111,13 +92,10 @@ planning_task:
     - supporting_points: Evidence, examples, and implications
     - formatting_suggestions: Layout optimization for LinkedIn
     - sources: Credible references that build authority
-
     Ensure the content series:
     - Maintains professional tone while being engaging
     - Builds narrative connections between posts
     - Optimizes each post for LinkedIn's platform
     - Creates clear value for the audience
     - Encourages meaningful professional discussion
-
   agent: planner
-  output_pydantic: ContentPlan
