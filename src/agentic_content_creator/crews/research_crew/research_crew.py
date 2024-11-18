@@ -2,17 +2,16 @@ import os
 from crewai import Agent, Crew, Process, Task, LLM
 from crewai.project import CrewBase, agent, crew, task
 from crewai_tools import SerperDevTool
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from typing import List
+from datetime import datetime
 
 # Define pydantic models in the same file
 class LinkedInPost(BaseModel):
-	hook: str
-	why_matters: str
-	main_insight: str
-	supporting_points: List[str]
-	formatting_suggestions: str
-	sources: List[str]
+	hook: str = Field(..., description="Attention-grabbing opening line")
+	main_insight_1: str = Field(..., description="Core message or insight")
+	main_insight_2: str = Field(..., description="Another Core message or insight")
+	sources: List[str] = Field(..., description="Reference links")
 
 class ContentPlan(BaseModel):
 	posts: List[LinkedInPost]
@@ -36,6 +35,7 @@ class ResearchCrew():
 	def planner(self) -> Agent:
 		return Agent(
 			config=self.agents_config['planner'],
+			tools=[SerperDevTool()],
 			verbose=True
 		)
 

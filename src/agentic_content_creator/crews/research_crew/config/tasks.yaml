@@ -85,17 +85,12 @@ planning_task:
     - What triggers sharing behavior?
     - How can the format enhance the message?
   expected_output: >
-    Create a detailed ContentPlan with 5-7 LinkedInPost objects. Each post should include:
+    Create a detailed ContentPlan with 3 LinkedInPost objects. Each post should include:
     - hook: Attention-grabbing opening that stops the scroll
-    - why_matters: Clear value proposition for professionals
     - main_insight: Core message with unique perspective
-    - supporting_points: Evidence, examples, and implications
-    - formatting_suggestions: Layout optimization for LinkedIn
     - sources: Credible references that build authority
     Ensure the content series:
     - Maintains professional tone while being engaging
-    - Builds narrative connections between posts
     - Optimizes each post for LinkedIn's platform
     - Creates clear value for the audience
-    - Encourages meaningful professional discussion
   agent: planner

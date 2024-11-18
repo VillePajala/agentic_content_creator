@@ -1,6 +1,7 @@
 from ...config import LLM_CONFIG
 from crewai import Agent, Crew, Process, Task
 from crewai.project import CrewBase, agent, crew, task
+from crewai_tools import SerperDevTool
 import os
 from src.agentic_content_creator.config import CONTENT_CREATOR_INPUT_VARIABLES
 
@@ -25,6 +26,7 @@ class ContentCrew():
 	def content_writer(self) -> Agent:
 		return Agent(
 			config=self.agents_config['content_writer'],
+			tools=[SerperDevTool()],
 			verbose=True
 		)
 
@@ -32,6 +34,7 @@ class ContentCrew():
 	def editor(self) -> Agent:
 		return Agent(
 			config=self.agents_config['editor'],
+			tools=[SerperDevTool()],
 			verbose=True
 		)
 

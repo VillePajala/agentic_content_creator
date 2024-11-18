@@ -1,6 +1,6 @@
 writing_task:
   description: >
-    Create a professional LinkedIn post based on the provided content plan. Transform the research insights into 
+    Create a professional LinkedIn post based on {topic} the provided content plan. Transform the research insights into 
     a compelling, authoritative narrative that delivers clear value to a professional audience.
     Writing Guidelines:
     1. Professional Structure
@@ -19,12 +19,26 @@ writing_task:
        - Reference industry trends and developments
        - Create natural opportunities for knowledge sharing
     Content to Create: {post}
+    Format requirements:
+    - NO hashtags at all
+    - Keep formatting simple and clean
+    - Use only essential emojis if needed
+    - Focus on the content value itself
+    Writing style:
+    - Write as if you're sharing insights with a colleague over coffee
+    - Write like a human, not an AI
+    - Take influence from famous linkedin writer's styles
+    - Use contractions (I'm, we've, here's) naturally
+    - Vary sentence length and structure
+    - Change overly LLM typical use of wording
+    - Skip generic phrases like "In this post" or "I am excited to share"
   expected_output: >
     Deliver a cohesive, professional LinkedIn post that:
     - Demonstrates thought leadership
+    - Is engaging and interesting
+    - Is to the point and concise
     - Provides substantial industry insights
     - Maintains consistent professional tone
-    - Encourages meaningful professional dialogue
     - Adheres to LinkedIn's length guidelines
     - Uses strategic but minimal formatting for readability
   agent: content_writer
@@ -55,6 +69,16 @@ editing_task:
        - Industry relevance
        - Call to professional action
     Content to Edit: {post}
+    Ensure the final post:
+    - Contains no hashtags
+    - Maintains clean formatting
+    - Removes any auto-generated tags or markers
+    Tone check:
+    - Remove any AI-like patterns (lists of exactly 3 or 5 items, repetitive structures)
+    - Change overly LLM typical use of wording
+    - Break up any too-perfect paragraph structures
+    - Replace generic transitions with more natural flow
+    - Keep industry terms but explain them conversationally
   expected_output: >
     Provide a polished LinkedIn post that:
     - Demonstrates clear thought leadership
