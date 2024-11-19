@@ -1,13 +1,14 @@
 research_task:
   description: >
-    Conduct thorough research on {topic}.
+    Conduct thorough research on {topic}. Focus on finding unique insights, current trends and what is discussed active
+    . Try to come up different viewpoints and angles.
   expected_output: >
     A through research on {topic}.
   agent: researcher
 
 planning_task:
   description: >
-    Create a viriety of LinkedIn content plans from the research.
+    Create 10 comprehensive and detailed LinkedIn content plans based on the research_task output.
   expected_output: >
-    Create a detailed ContentPlan with 3 LinkedInPost objects. 
+    10 detailed and comprehensive plans for LinkedIn posts. 
   agent: planner

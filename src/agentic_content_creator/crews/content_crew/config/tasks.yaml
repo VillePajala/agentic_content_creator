@@ -3,6 +3,7 @@ writing_task:
     Create a professional LinkedIn post based on the {content_plan}. 
     Writing Guidelines:
     - Search online what natural human writing looks like and apply that style
+    - make a quick research on the ideas in {content_plan} to make it more detailed and interesting.
     Format requirements:
     - No hashtags
     - No emojis
