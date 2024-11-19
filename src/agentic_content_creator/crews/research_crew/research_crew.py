@@ -7,14 +7,11 @@ from typing import List
 from datetime import datetime
 
 # Define pydantic models in the same file
-class LinkedInPost(BaseModel):
-	hook: str = Field(..., description="Attention-grabbing opening line")
-	main_insight_1: str = Field(..., description="Core message or insight")
-	main_insight_2: str = Field(..., description="Another Core message or insight")
-	sources: List[str] = Field(..., description="Reference links")
+class LinkedInPostPlan(BaseModel):
+	plan: str = Field(..., description="LinkedIn post plan")
 
 class ContentPlan(BaseModel):
-	posts: List[LinkedInPost]
+	plans: List[LinkedInPostPlan]
 
 @CrewBase
 class ResearchCrew():
@@ -35,7 +32,6 @@ class ResearchCrew():
 	def planner(self) -> Agent:
 		return Agent(
 			config=self.agents_config['planner'],
-			tools=[SerperDevTool()],
 			verbose=True
 		)
 

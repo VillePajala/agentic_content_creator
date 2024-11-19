@@ -34,7 +34,6 @@ class ContentCrew():
 	def editor(self) -> Agent:
 		return Agent(
 			config=self.agents_config['editor'],
-			tools=[SerperDevTool()],
 			verbose=True
 		)
 
