@@ -2,8 +2,13 @@ from crewai import Agent, Crew, Process, Task, LLM
 from crewai.project import CrewBase, agent, crew, task
 from crewai_tools import SerperDevTool
 from pydantic import BaseModel, Field
+import os
 from typing import List
-from datetime import datetime
+
+llm = LLM(
+    model=os.getenv('OPENAI_MODEL_NAME'),
+    api_key=os.getenv('OPENAI_API_KEY')
+)
 
 # Define pydantic models in the same file
 class LinkedInPostPlan(BaseModel):
@@ -24,6 +29,7 @@ class ResearchCrew():
 		return Agent(
 			config=self.agents_config['researcher'],
 			tools=[SerperDevTool()],
+			llm=llm,
 			verbose=True
 		)
 
@@ -31,6 +37,7 @@ class ResearchCrew():
 	def planner(self) -> Agent:
 		return Agent(
 			config=self.agents_config['planner'],
+			llm=llm,
 			verbose=True
 		)
 

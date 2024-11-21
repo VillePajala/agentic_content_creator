@@ -1,8 +1,13 @@
-from crewai import Agent, Crew, Process, Task
+from crewai import Agent, Crew, Process, Task, LLM
 from crewai.project import CrewBase, agent, crew, task
 from crewai_tools import SerperDevTool
 import os
 from src.agentic_content_creator.config import CONTENT_CREATOR_INPUT_VARIABLES
+
+llm = LLM(
+    model=os.getenv('OPENAI_MODEL_NAME'),
+    api_key=os.getenv('OPENAI_API_KEY')
+)
 
 @CrewBase
 class ContentCrew():
@@ -26,6 +31,7 @@ class ContentCrew():
 		return Agent(
 			config=self.agents_config['content_writer'],
 			tools=[SerperDevTool()],
+			llm=llm,
 			verbose=True
 		)
 
@@ -33,6 +39,7 @@ class ContentCrew():
 	def editor(self) -> Agent:
 		return Agent(
 			config=self.agents_config['editor'],
+			llm=llm,
 			verbose=True
 		)
 

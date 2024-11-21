@@ -2,7 +2,7 @@ writing_task:
   description: >
     Create a professional LinkedIn post based on the {content_plan}. 
     Writing Guidelines:
-    - Make a online search to deepen the content referred in the {content_plan}.
+    - Make a online search to deepen the core idea referred in the {content_plan} and make the point clear and unique.
     Format requirements:
     - No hashtags
     - No emojis
@@ -14,14 +14,15 @@ writing_task:
 
 editing_task:
   description: >
-    Review and refine the LinkedIn post to ensure it meets the highest standards.
+    Review and refine the LinkedIn post to ensure it meets the highest standards. 
     Ensure the final post:
     - Contains no hashtags
     - Contains no emojis
     - Sounds like a human wrote it
+    - Does not have a call to action
     Tone check:
     - Remove any AI-like patterns
     - remove any wording that is typical for LLMs
   expected_output: >
-    Provide a polished LinkedIn post.
+    Provide a polished LinkedIn post that is unique, engaging and professional. The post should make the reading of it worth it.
   agent: editor
