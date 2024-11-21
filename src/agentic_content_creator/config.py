@@ -11,7 +11,7 @@ LLM_CONFIGS = {
     },
     "anthropic": {
         "model": "anthropic/claude-3-5-sonnet-20240620",
-        "api_key": os.getenv('ANTHROPIC_API_KEY')
+        "api_key": os.getenv('CLAUDE_API_KEY')
     }
 }
 

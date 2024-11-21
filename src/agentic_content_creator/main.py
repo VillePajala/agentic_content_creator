@@ -88,6 +88,8 @@ def delete_md_files():
         except OSError as e:
             print(f"Error deleting {file}: {e}")
 
+        
+
 if __name__ == "__main__":
     delete_md_files()
     kickoff()

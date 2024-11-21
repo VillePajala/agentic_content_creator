@@ -2,3 +2,4 @@
 __pycache__/
 lib/
 .md
+llm_config.py

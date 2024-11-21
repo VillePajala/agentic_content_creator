@@ -1,7 +1,7 @@
 research_task:
   description: >
-    Conduct thorough research on {topic}. Focus on finding unique insights, current trends and what is discussed active
-    . Try to come up different viewpoints and angles.
+    Conduct thorough, detailed and extensive (long) research on {topic}. Focus on finding unique insights, current trends and what is discussed actively. 
+    Try to come up different viewpoints and angles.
   expected_output: >
     A through research on {topic}.
   agent: researcher
