@@ -1,16 +1,15 @@
-#!/usr/bin/env python
 import os
 from crewai.flow.flow import Flow, listen, start
 #from langtrace_python_sdk import langtrace
 from .crews.research_crew.research_crew import ResearchCrew
 from .crews.content_crew.content_crew import ContentCrew
-from .config import CONTENT_CREATOR_INPUT_VARIABLES
+from .config import input_vars
 
 #api_key = os.getenv('LANGTRACE_API_KEY')
 #langtrace.init(api_key=api_key)
 
 class ContentCreatorFlow(Flow):
-    input_variables = CONTENT_CREATOR_INPUT_VARIABLES
+    input_variables = input_vars
 
     @start()
     def generate_research_content(self):

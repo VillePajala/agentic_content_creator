@@ -1,26 +1,50 @@
 import os
+from crewai import LLM
+
+input_vars = {
+    "topic": "Timeline of AGI"
+} 
 
 LLM_CONFIGS = {
     "openai": {
-        "model": "gpt-4o-mini",
-        "api_key": os.getenv('OPENAI_API_KEY')
+        "api_key": os.getenv('OPENAI_API_KEY'),
+        "models": {
+            "gpt-4o-mini": "gpt-4o-mini",
+            "gpt-4o": "gpt-4o",
+            "o1-mini": "o1-mini",
+            "o1-preview": "o1-preview",
+        }
     },
     "groq": {
-        "model": "groq/llama3-groq-70b-8192-tool-use-preview", 
-        "api_key": os.getenv('GROQ_API_KEY')
+        "api_key": os.getenv('GROQ_API_KEY'),
+        "models": {
+            "llama3-groq-70b": "groq/llama3-groq-70b-8192-tool-use-preview",
+            "llama3-groq-8b": "groq/llama3-groq-8b-8192-tool-use-preview",
+            "llama3-groq-405b": "groq/llama3-groq-405b-8192-tool-use-preview",
+        }
     },
     "anthropic": {
-        "model": "anthropic/claude-3-5-sonnet-20240620",
-        "api_key": os.getenv('CLAUDE_API_KEY')
+        "api_key": os.getenv('CLAUDE_API_KEY'),
+        "models": {
+            "claude-3-5-sonnet": "anthropic/claude-3-5-sonnet-20240620",
+            "claude-3-sonnet": "anthropic/claude-3-sonnet-20240229",
+            "claude-3-opus": "anthropic/claude-3-opus-20240229",
+            "claude-3-haiku": "anthropic/claude-3-haiku-20240307",
+        }
     }
 }
 
-LLM_CONFIG = LLM_CONFIGS["openai"] # Change this to switch between LLMs
+def initialize_llms():
+    llms = {}
+    for provider, config in LLM_CONFIGS.items():
+        llms[provider] = {}
+        api_key = config['api_key']
+        for model_name, model_id in config['models'].items():
+            llms[provider][model_name] = LLM(
+                model=model_id,
+                api_key=api_key
+            )
+    return llms
 
-EDU_FLOW_INPUT_VARIABLES = {
-    "topic": "Timeline of AGI"
-}
+llms = initialize_llms()
 
-CONTENT_CREATOR_INPUT_VARIABLES = {
-    "topic": "Timeline of AGI"
-} 

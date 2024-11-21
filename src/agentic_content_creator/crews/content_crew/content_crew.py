@@ -2,16 +2,12 @@ from crewai import Agent, Crew, Process, Task, LLM
 from crewai.project import CrewBase, agent, crew, task
 from crewai_tools import SerperDevTool
 import os
-from src.agentic_content_creator.config import CONTENT_CREATOR_INPUT_VARIABLES
-
-llm = LLM(
-    model=os.getenv('OPENAI_MODEL_NAME'),
-    api_key=os.getenv('OPENAI_API_KEY')
-)
+from src.agentic_content_creator.config import input_vars, llms
+from typing import List
 
 @CrewBase
 class ContentCrew():
-	input_variables = CONTENT_CREATOR_INPUT_VARIABLES
+	input_variables = input_vars
 	"""ContentCrew for LinkedIn content creation"""
 
 	agents_config = 'config/agents.yaml'
@@ -31,7 +27,7 @@ class ContentCrew():
 		return Agent(
 			config=self.agents_config['content_writer'],
 			tools=[SerperDevTool()],
-			llm=llm,
+			llm=llms['openai']['gpt-4o-mini'],
 			verbose=True
 		)
 
@@ -39,7 +35,7 @@ class ContentCrew():
 	def editor(self) -> Agent:
 		return Agent(
 			config=self.agents_config['editor'],
-			llm=llm,
+			llm=llms['openai']['gpt-4o-mini'],
 			verbose=True
 		)
 
