@@ -39,6 +39,7 @@ class ResearchCrew():
 	def research_task(self) -> Task:
 		return Task(
 			config=self.tasks_config['research_task'],
+			output_file='content_research.md'
 		)
 
 	@task
