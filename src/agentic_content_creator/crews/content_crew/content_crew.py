@@ -27,7 +27,7 @@ class ContentCrew():
 		return Agent(
 			config=self.agents_config['content_writer'],
 			tools=[SerperDevTool()],
-			llm=llms['openai']['gpt-4o-mini'],
+			llm=llms['openai']['gpt-4o'],
 			verbose=True
 		)
 
@@ -35,7 +35,15 @@ class ContentCrew():
 	def editor(self) -> Agent:
 		return Agent(
 			config=self.agents_config['editor'],
-			llm=llms['openai']['gpt-4o-mini'],
+			llm=llms['openai']['o1-preview'],
+			verbose=True
+		)
+	
+	@agent
+	def researcher(self) -> Agent:
+		return Agent(
+			config=self.agents_config['researcher'],
+			llm=llms['openai']['gpt-4o'],
 			verbose=True
 		)
 
@@ -47,13 +55,8 @@ class ContentCrew():
 
 	@task
 	def editing_task(self) -> Task:
-		topic = self.input_variables.get("topic")
-		file_name = f"{topic}.md".replace(" ", "_")
-		output_file_path = os.path.join('output', file_name)
-		
 		return Task(
 			config=self.tasks_config['editing_task'],
-			output_file=output_file_path
 		)
 
 	@crew

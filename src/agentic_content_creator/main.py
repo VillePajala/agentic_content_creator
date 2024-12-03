@@ -72,24 +72,7 @@ def kickoff():
     content_flow = ContentCreatorFlow()
     content_flow.kickoff()
 
-def delete_md_files():
-    # Get all files in current directory
-    files = os.listdir('.')
-    
-    # Filter for .md files excluding readme.md
-    md_files = [f for f in files if f.endswith('.md') and f.lower() != 'readme.md']
-    
-    # Delete each file
-    for file in md_files:
-        try:
-            os.remove(file)
-            print(f"Deleted: {file}")
-        except OSError as e:
-            print(f"Error deleting {file}: {e}")
-
-        
 
 if __name__ == "__main__":
-    delete_md_files()
     kickoff()
     
