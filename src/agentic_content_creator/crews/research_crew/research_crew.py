@@ -8,7 +8,11 @@ from src.agentic_content_creator.config import input_vars, llms
 
 class LinkedInPostPlan(BaseModel):
 	plan: str = Field(..., description="LinkedIn post plan")
-
+	title: str = Field(..., description="LinkedIn post title")
+	core_content: str = Field(..., description="LinkedIn post core content")
+	supporting_content: str = Field(..., description="LinkedIn post supporting content (why this matters)")
+	keypoints: str = Field(..., description="Bulleted list of the main points")
+	
 class ContentPlan(BaseModel):
 	plans: List[LinkedInPostPlan]
 
