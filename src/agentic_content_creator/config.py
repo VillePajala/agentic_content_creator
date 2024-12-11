@@ -2,7 +2,7 @@ import os
 from crewai import LLM
 
 input_vars = {
-    "topic": "Timeline of AGI"
+    "topic": "Google's new Quantum chip Willow"
 } 
 
 LLM_CONFIGS = {

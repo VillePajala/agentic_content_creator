@@ -20,9 +20,9 @@ class ContentCreatorFlow(Flow):
     def generate_linkedin_content(self, planset):        
         print("Generating LinkedIn content")
         final_content = []
-        for post in planset.plans:
+        for plan in planset.plans:
             writer_inputs = self.input_variables.copy()
-            writer_inputs['content_plan'] = post.model_dump_json()
+            writer_inputs['content_plan'] = plan.model_dump_json()
             self.ensure_content_plan(writer_inputs)
             final_content.append(ContentCrew().crew().kickoff(writer_inputs).raw)
         print(final_content)

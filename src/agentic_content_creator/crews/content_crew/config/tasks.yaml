@@ -1,13 +1,15 @@
 writing_task:
   description: >
-    Create a professional LinkedIn post based on the {content_plan}. 
+    Create a professional LinkedIn post based on the {content_plan}. The post LinkedIn post that has a strong but credible title, the core idea sortly,
+    explanation why the core idea is important, a bulleted list of most importan key insights and quick summarizing ending. Make a online search do deepen your understanding of the corea idea.
     Writing Guidelines:
     - No hashtags
     - No emojis
     Writing style:
     - Aim for a conversational tone
   expected_output: >
-    Deliver a cohesive, professional LinkedIn post
+    Deliver a cohesive, professional LinkedIn post that has a strong but credible title, the core idea sortly,
+    explanation why the core idea is important, a bulleted list of most importan key insights and quick summarizing ending.
   agent: content_writer
 
 editing_task:

@@ -8,9 +8,10 @@ from src.agentic_content_creator.config import input_vars, llms
 
 class LinkedInPostPlan(BaseModel):
 	plan: str = Field(..., description="LinkedIn post plan")
-	title: str = Field(..., description="LinkedIn post title")
-	core_content: str = Field(..., description="LinkedIn post core content")
-	supporting_content: str = Field(..., description="LinkedIn post supporting content (why this matters)")
+	title: str = Field(..., description="Linkedin post title")
+	coreIdeat: str = Field(..., description="Core idea of the Linkedin post")
+	angle: str = Field(..., description="Angle of the Linkedin post")
+	justification: str = Field(..., description="Why is this content important")
 	keypoints: str = Field(..., description="Bulleted list of the main points")
 	
 class ContentPlan(BaseModel):
