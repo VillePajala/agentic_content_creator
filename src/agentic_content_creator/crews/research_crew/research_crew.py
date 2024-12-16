@@ -8,11 +8,6 @@ from src.agentic_content_creator.config import input_vars, llms
 
 class LinkedInPostPlan(BaseModel):
 	plan: str = Field(..., description="LinkedIn post plan")
-	title: str = Field(..., description="Linkedin post title")
-	coreIdeat: str = Field(..., description="Core idea of the Linkedin post")
-	angle: str = Field(..., description="Angle of the Linkedin post")
-	justification: str = Field(..., description="Why is this content important")
-	keypoints: str = Field(..., description="Bulleted list of the main points")
 	
 class ContentPlan(BaseModel):
 	plans: List[LinkedInPostPlan]
@@ -39,7 +34,7 @@ class ResearchCrew():
 		return Agent(
 			config=self.agents_config['researcher'],
 			tools=[SerperDevTool()],
-			llm=llms['openai']['gpt-4o'],
+			llm=llms['openai']['o1'],
 			verbose=True
 		)
 
@@ -48,14 +43,6 @@ class ResearchCrew():
 		return Agent(
 			config=self.agents_config['planner'],
 			llm=llms['openai']['gpt-4o'],
-			verbose=True
-		)
-
-	@agent
-	def plan_editor(self) -> Agent:
-		return Agent(
-			config=self.agents_config['plan_editor'],
-			llm=llms['openai']['o1-preview'],
 			verbose=True
 		)
 

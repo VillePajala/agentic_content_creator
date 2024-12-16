@@ -1,15 +1,15 @@
 research_task:
   description: >
-    Conduct thorough, detailed and extensive (long) research on {topic}. 
-    Focus on finding several unique insights and angles and write a paragraph of each so that the end result is a collection od paragraphs covering diverse ideas.
+    Conduct thorough, comprehensive detailed and extensive (long) research on {topic}. 
+    Focus on finding several unique insights and angles.
   expected_output: >
-    A through research on {topic}. The research should have multiple comprehensive idea sections.
+    A through research on {topic}. The research should be long, detailed and comprehensive.
   agent: researcher
 
 planning_task:
   description: >
     Create 3-5 comprehensive and detailed LinkedIn content plans based on the research_task output. The plan should
-    include in detail what the core idea of the post is, what the angle is, what the title of the post should be, why it is important.
+    include a comprehensive list of key insights and a bulleted list of most important key insights.
   expected_output: >
-    10 detailed and comprehensive plans for LinkedIn posts. 
+    3-5 detailed and comprehensive plans for LinkedIn posts. 
   agent: planner

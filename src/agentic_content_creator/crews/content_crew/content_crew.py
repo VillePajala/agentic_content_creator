@@ -35,18 +35,11 @@ class ContentCrew():
 	def editor(self) -> Agent:
 		return Agent(
 			config=self.agents_config['editor'],
+			tools=[SerperDevTool()],
 			llm=llms['openai']['gpt-4o'],
 			verbose=True
 		)
 	
-	@agent
-	def researcher(self) -> Agent:
-		return Agent(
-			config=self.agents_config['researcher'],
-			llm=llms['openai']['gpt-4o'],
-			verbose=True
-		)
-
 	@task
 	def writing_task(self) -> Task:
 		return Task(

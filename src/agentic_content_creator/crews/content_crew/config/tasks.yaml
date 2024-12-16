@@ -1,15 +1,14 @@
 writing_task:
   description: >
-    Create a professional LinkedIn post based on the {content_plan}. The post LinkedIn post that has a strong but credible title, the core idea sortly,
-    explanation why the core idea is important, a bulleted list of most importan key insights and quick summarizing ending. Make a online search do deepen your understanding of the corea idea.
+    Create a professional LinkedIn post based on the {content_plan}. First distill the core insight of the plan core ide and make a comprehensive web search to broaden your understanding of the core idea.
+    Then write a professional LinkedIn post. In the post, add a bulleted list of all important key insights.
     Writing Guidelines:
     - No hashtags
     - No emojis
     Writing style:
     - Aim for a conversational tone
   expected_output: >
-    Deliver a cohesive, professional LinkedIn post that has a strong but credible title, the core idea sortly,
-    explanation why the core idea is important, a bulleted list of most importan key insights and quick summarizing ending.
+    Deliver a cohesive, professional LinkedIn post with a bulleted list of all important key insights.
   agent: content_writer
 
 editing_task:
@@ -21,20 +20,9 @@ editing_task:
     - Sounds like a human wrote it
     - Does not have a call to action
     - Consider if the content could use more research.
-    Tone check:
-    - Remove any AI-like patterns
-    - remove any wording that is typical for LLMs
+    Tone check: if yes make additional research and add the new insights to the post.
+    - Remove any AI-like patterns and words that is typical for LLMs
   expected_output: >
-    Provide a polished LinkedIn post that is unique, engaging and professional. The post should make the reading of it worth it.
+    Provide a polished LinkedIn post that is unique, engaging and professional. The post should make the reading of it worth it and create value for the reader.
   agent: editor
 
-researching_task:
-  description: >
-    Conduct research to gather more information and insights based on the {content_plan} for LinkedIn content creation.
-    Research Guidelines:
-    - Use credible sources to gather data and insights.
-    - Ensure the information is relevant and up-to-date.
-    - If possible, find unique details that make the content more interesting.
-  expected_output: >
-    Provide a comprehensive research report that supports the content creation process.
-  agent: researcher
