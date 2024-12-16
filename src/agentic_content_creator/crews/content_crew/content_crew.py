@@ -35,7 +35,7 @@ class ContentCrew():
 	def editor(self) -> Agent:
 		return Agent(
 			config=self.agents_config['editor'],
-			llm=llms['openai']['o1-preview'],
+			llm=llms['openai']['gpt-4o'],
 			verbose=True
 		)
 	

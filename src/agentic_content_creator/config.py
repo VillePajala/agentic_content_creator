@@ -2,7 +2,7 @@ import os
 from crewai import LLM
 
 input_vars = {
-    "topic": "Google's new Quantum chip Willow"
+    "topic": "Facts and rumors about Gemini 2.0 Flash architecture"
 } 
 
 LLM_CONFIGS = {
