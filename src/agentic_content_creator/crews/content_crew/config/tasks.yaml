@@ -1,8 +1,8 @@
 research_task:
   description: >
-    Make an extensive web search to broaden the knowledge of the key angle of the {paragraph} and produce a comprehensive research report.
+    Read the {paragraph} and make, get the specific angle of the {paragraph} and make an extensive web search with the angle as the main topic.
   expected_output: >
-    A comprehensive research report on the key angle of the given {paragraph}
+    A comprehensive research report on the key angle of the given {paragraph}. Define which was the phrase that was used in the web search.
   agent: researcher
 
 writing_task:
@@ -11,7 +11,10 @@ writing_task:
     1. Hook: Start with a compelling statistic, question, or statement
     2. Context: Provide brief background on why this matters now
     3. Main Points: Present 2-3 key insights with supporting evidence
+    4. Bullet points: Create a bulleted list of all important key insights
     Writing Guidelines:
+    - Write like a human
+    - Write like a famous linkedin post writer
     - Keep paragraphs short (2-3 sentences)
     - Use specific numbers and data points
     - Include real-world examples

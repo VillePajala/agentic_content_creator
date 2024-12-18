@@ -20,7 +20,7 @@ class ContentCreatorFlow(Flow):
     def generate_linkedin_content(self, research_output):        
         print("Generating LinkedIn content")
         final_content = []
-        for paragraph in research_output.paragraphs:
+        for index, paragraph in enumerate(research_output.paragraphs, 1):
             writer_inputs = self.input_variables.copy()
             writer_inputs['paragraph'] = paragraph.model_dump_json()
             self.ensure_content_plan(writer_inputs)

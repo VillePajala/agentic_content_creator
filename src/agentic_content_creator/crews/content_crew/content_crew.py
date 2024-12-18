@@ -28,6 +28,7 @@ class ContentCrew():
 			config=self.agents_config['researcher'],
 			tools=[SerperDevTool()],
 			llm=llms['openai']['gpt-4o'],
+			
 			verbose=True
 		)
 
@@ -54,20 +55,19 @@ class ContentCrew():
 	def research_task(self) -> Task:
 		return Task(
 			config=self.tasks_config['research_task'],
-			output_file='content_research.md',
 		)
 
-	@task
-	def writing_task(self) -> Task:
-		return Task(
-			config=self.tasks_config['writing_task'],
-		)
+	#@task
+	#def writing_task(self) -> Task:
+	#	return Task(
+	#		config=self.tasks_config['writing_task'],
+	#	)
 
-	@task
-	def editing_task(self) -> Task:
-		return Task(
-			config=self.tasks_config['editing_task'],
-		)
+	#@task
+	#def editing_task(self) -> Task:
+	#	return Task(
+	#		config=self.tasks_config['editing_task'],
+	#	)
 
 	@crew
 	def crew(self) -> Crew:
