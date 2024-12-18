@@ -6,6 +6,17 @@ from typing import List
 import os
 from src.agentic_content_creator.config import input_vars, llms
 
+class ResearchParagraph(BaseModel):
+	"""Model for a single research paragraph"""
+	title: str = Field(..., description="Title or topic of the paragraph")
+	content: str = Field(..., description="Content of the research paragraph")
+	sources: List[str] = Field(default_factory=list, description="Sources for this research paragraph")
+
+class ResearchOutput(BaseModel):
+	"""Model for the complete research output"""
+	paragraphs: List[ResearchParagraph] = Field(..., description="List of research paragraphs")
+	summary: str = Field(..., description="Brief summary of the research findings")
+
 class LinkedInPostPlan(BaseModel):
 	plan: str = Field(..., description="LinkedIn post plan")
 	
@@ -34,7 +45,7 @@ class ResearchCrew():
 		return Agent(
 			config=self.agents_config['researcher'],
 			tools=[SerperDevTool()],
-			llm=llms['openai']['o1'],
+			llm=llms['openai']['gpt-4o'],
 			verbose=True
 		)
 
@@ -50,16 +61,17 @@ class ResearchCrew():
 	def research_task(self) -> Task:
 		return Task(
 			config=self.tasks_config['research_task'],
-			output_file='content_research.md'
+			output_file='content_research.md',
+			output_pydantic=ResearchOutput
 		)
 
-	@task
-	def planning_task(self) -> Task:
-		return Task(
-			config=self.tasks_config['planning_task'],
-			output_pydantic=ContentPlan,
-			output_file='content_plan.md'
-		)
+	#@task
+	#def planning_task(self) -> Task:
+	#	return Task(
+	#		config=self.tasks_config['planning_task'],
+	#		output_pydantic=ContentPlan,
+	#		output_file='content_plan.md'
+	#	)
 
 	@crew
 	def crew(self) -> Crew:
@@ -68,5 +80,6 @@ class ResearchCrew():
 			agents=self.agents,
 			tasks=self.tasks,
 			process=Process.sequential,
-			verbose=True
+			verbose=True,
+			output_pydantic=ContentPlan
 		)

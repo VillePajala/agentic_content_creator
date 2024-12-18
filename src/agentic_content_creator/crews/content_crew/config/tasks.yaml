@@ -1,12 +1,22 @@
+research_task:
+  description: >
+    Make an extensive web search to broaden the knowledge of the key angle of the {paragraph} and produce a comprehensive research report.
+  expected_output: >
+    A comprehensive research report on the key angle of the given {paragraph}
+  agent: researcher
+
 writing_task:
   description: >
-    Create a professional LinkedIn post based on the {content_plan}. First distill the core insight of the plan core ide and make a comprehensive web search to broaden your understanding of the core idea.
-    Then write a professional LinkedIn post. In the post, add a bulleted list of all important key insights.
+    Create a professional LinkedIn post based on given input following this structure:
+    1. Hook: Start with a compelling statistic, question, or statement
+    2. Context: Provide brief background on why this matters now
+    3. Main Points: Present 2-3 key insights with supporting evidence
     Writing Guidelines:
-    - No hashtags
-    - No emojis
-    Writing style:
-    - Aim for a conversational tone
+    - Keep paragraphs short (2-3 sentences)
+    - Use specific numbers and data points
+    - Include real-world examples
+    - Maintain professional tone while being conversational
+    - No hashtags or emojis
   expected_output: >
     Deliver a cohesive, professional LinkedIn post with a bulleted list of all important key insights.
   agent: content_writer
@@ -19,10 +29,31 @@ editing_task:
     - Contains no emojis
     - Sounds like a human wrote it
     - Does not have a call to action
-    - Consider if the content could use more research.
     Tone check: if yes make additional research and add the new insights to the post.
     - Remove any AI-like patterns and words that is typical for LLMs
   expected_output: >
     Provide a polished LinkedIn post that is unique, engaging and professional. The post should make the reading of it worth it and create value for the reader.
   agent: editor
+
+quality_check_task:
+  description: >
+    Evaluate the LinkedIn post against these criteria:
+    1. Engagement Potential
+       - Compelling hook
+       - Clear value proposition
+       - Conversation starter
+    2. Credibility
+       - Data-backed claims
+       - Expert citations
+       - Industry relevance
+    3. Readability
+       - Clear structure
+       - Professional tone
+       - Appropriate length
+    4. Uniqueness
+       - Original insights
+       - Fresh perspective
+       - Differentiated content
+    
+    Provide specific improvement suggestions if any criteria score below 8/10.
 

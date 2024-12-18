@@ -2,7 +2,7 @@ import os
 from crewai import LLM
 
 input_vars = {
-    "topic": "Facts and rumors about Gemini 2.0 Flash architecture"
+    "topic": "Google's project Mariner"
 } 
 
 LLM_CONFIGS = {
@@ -13,6 +13,7 @@ LLM_CONFIGS = {
             "gpt-4o": "gpt-4o",
             "o1-mini": "o1-mini",
             "o1-preview": "o1-preview",
+            "o1-latest": "o1-latest",
         }
     },
     "groq": {

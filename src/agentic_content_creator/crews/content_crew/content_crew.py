@@ -23,10 +23,19 @@ class ContentCrew():
 			os.makedirs(output_folder)
 
 	@agent
+	def researcher(self) -> Agent:
+		return Agent(
+			config=self.agents_config['researcher'],
+			tools=[SerperDevTool()],
+			llm=llms['openai']['gpt-4o'],
+			verbose=True
+		)
+
+	@agent
 	def content_writer(self) -> Agent:
 		return Agent(
 			config=self.agents_config['content_writer'],
-			tools=[SerperDevTool()],
+			#tools=[SerperDevTool()],
 			llm=llms['openai']['gpt-4o'],
 			verbose=True
 		)
@@ -40,6 +49,14 @@ class ContentCrew():
 			verbose=True
 		)
 	
+
+	@task
+	def research_task(self) -> Task:
+		return Task(
+			config=self.tasks_config['research_task'],
+			output_file='content_research.md',
+		)
+
 	@task
 	def writing_task(self) -> Task:
 		return Task(

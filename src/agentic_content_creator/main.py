@@ -17,12 +17,12 @@ class ContentCreatorFlow(Flow):
         return ResearchCrew().crew().kickoff(self.input_variables).pydantic
 
     @listen(generate_research_content)
-    def generate_linkedin_content(self, planset):        
+    def generate_linkedin_content(self, research_output):        
         print("Generating LinkedIn content")
         final_content = []
-        for plan in planset.plans:
+        for paragraph in research_output.paragraphs:
             writer_inputs = self.input_variables.copy()
-            writer_inputs['content_plan'] = plan.model_dump_json()
+            writer_inputs['paragraph'] = paragraph.model_dump_json()
             self.ensure_content_plan(writer_inputs)
             final_content.append(ContentCrew().crew().kickoff(writer_inputs).raw)
         print(final_content)
@@ -65,8 +65,11 @@ class ContentCreatorFlow(Flow):
             writer_inputs['content_plan'] = self.get_default_content_plan()
 
     def get_default_content_plan(self):
-        # Implement logic to obtain a default content plan
-        pass
+        """Provide a default content plan when research crew fails"""
+        return {
+            "plan": "Create a professional LinkedIn post about the given topic, "
+                    "focusing on key insights and industry implications."
+        }
 
 def kickoff():
     content_flow = ContentCreatorFlow()
